@@ -1,7 +1,7 @@
-
-
-
 function home() {
+    const handleProjectsClick = () => {
+        console.log(1)
+    }
     return (
         <>
             <div className="shadow-md shadow-gray-100">
@@ -18,6 +18,14 @@ function home() {
                         </div>
                     </header>
             </div>
+            <section id="home" className="common-bg">
+                <div className="text-center">
+                    <p>HEY, I'M FADY DIB</p>
+                    <p>A Result-Oriented Web Developer building and managing Websites and Web Applications that leads to the success of the overall product</p>
+                    <button onClick={handleProjectsClick()}>PROJECTS</button>
+                </div>
+            </section>
+        </>
     )
 }
 
