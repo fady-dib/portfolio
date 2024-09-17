@@ -32,4 +32,50 @@
     top: 27px
   }
 }
+
+.n-scroll {
+  transition: transform 2s ease-out, display 1s ease-out;
+}
+
+.n-scroll h3 {
+  display: flex;
+  font-size: 5rem;
+  align-items: center;
+}
+
+
+#number {
+  display: flex;
+  width: 30px;
+  overflow: hidden;
+  height: 70px;
+}
+
+#number>span {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-basis: 48px;
+  width: 1px;
+  line-height: 70px;
+  transition: all 2.5s cubic-bezier(0.35, 0.1, 0.15, 1);
+}
+
+#number>span.visible {
+  position: static;
+}
+
+.line-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #1f2937;
+  opacity: 0.65;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.line {
+  position: relative
 }
