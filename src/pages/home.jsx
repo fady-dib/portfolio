@@ -35,11 +35,11 @@ function home() {
                     </div>
                 </div>
             </section>
-            <section id="about" className="pt-20 pb-4 bg-gray-100">
+            {/* <section id="about" className="pt-20 pb-4 bg-gray-100">
                 <p className="lato-black text-center text-[35px] relative pb-4">ABOUT ME <span className="underline-part"></span></p>
                 <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
 
-            </section>
+            </section> */}
         </>
     )
 }
