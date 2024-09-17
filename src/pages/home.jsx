@@ -10,10 +10,10 @@ function home() {
         <>
             <section id="home" className="common-bg ">
                 <div className="shadow-md shadow-gray-300 z-1000 bg-white">
-                    <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto px-5">
+                    <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto">
                         <div className="flex items-center">
                             <img src="images/fady_portfolio.svg" className="h-[72px] w-[72px] rounded-full object-cover"></img>
-                            <p className="pl-5">Fady Dib</p>
+                            <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="flex gap-16 text-[16px]">
                             <p>HOME</p>
@@ -34,6 +34,11 @@ function home() {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section id="about" className="pt-20 pb-4 bg-gray-100">
+                <p className="lato-black text-center text-[35px] relative pb-4">ABOUT ME <span className="underline-part"></span></p>
+                <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
+
             </section>
         </>
     )
