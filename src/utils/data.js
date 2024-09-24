@@ -1,14 +1,18 @@
 export const portfolio = [
     {
-         number: 240, title: 'MEGAWATTS', text: 'of awarded solar projects in the Middle East and Africa'
+        number: 20,
+        title: 'Projects Completed',
+        text: 'Successfully delivered 20 diverse projects across web development, showcasing my expertise in building scalable and efficient web applications.'
     },
     {
-         number: 400, title: 'MEGAWATT-HOURS', text: 'of clean energy generated to-date'
-
+        number: 3,
+        title: 'Years of Experience',
+        text: 'With 3+ years of professional experience in web development, I have honed my skills in front-end and back-end technologies.'
     },
     {
-        number: 20, title: 'METRIC TONS', text: 'of carbon emissions avoided to-date'
-
+        number: 15,
+        title: 'Technologies Mastered',
+        text: 'Proficient in 20 key technologies including React, Angular, Node.js, and Tailwind CSS, ensuring flexibility and adaptability in any project.'
     }
 ];
 

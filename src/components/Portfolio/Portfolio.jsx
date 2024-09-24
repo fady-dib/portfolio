@@ -13,7 +13,6 @@ const Portfolio = ({ portfolio }) => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Split text lines for animation
         runSplit();
         const handleScroll = () => {
             setupDynamicNumbers();
@@ -41,17 +40,21 @@ const Portfolio = ({ portfolio }) => {
         sectionsRef.current.forEach((section, index) => {
             if (isInViewport(section) && !setupStatusMap.has(section)) {
                 const dynamicNumberElement = section.querySelector('.dynamic-number');
-                const startNum = parseInt(dynamicNumberElement.getAttribute('data-number'));
-                setup(startNum, dynamicNumberElement);
 
-                // Update the setupStatusMap to avoid duplicate setups
-                setSetupStatusMap((prevMap) => new Map(prevMap.set(section, true)));
+                if (dynamicNumberElement.childElementCount === 0) {
+                    const startNum = parseInt(dynamicNumberElement.getAttribute('data-number'));
+                    setup(startNum, dynamicNumberElement);
+
+                    setSetupStatusMap((prevMap) => new Map(prevMap.set(section, true)));
+                }
             }
         });
     };
 
     const setup = (startNum, element) => {
         const digits = startNum.toString().split('');
+
+        element.innerHTML = '';
 
         digits.forEach((digit) => {
             addDigit(digit, element);
@@ -112,7 +115,7 @@ const Portfolio = ({ portfolio }) => {
 
 
     return (
-        <div className="pt-5 pb-4 bg-gray-100 text-white">
+        <div className="pt-20 pb-4 bg-gray-100 text-white">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center">
                     {portfolio.map((item, index) => (
