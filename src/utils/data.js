@@ -11,3 +11,7 @@ export const portfolio = [
 
     }
 ];
+
+export const skills = [
+    'HTML' , 'CSS', 'Javascript' , 'Typescript', 'PHP' , 'Node.js', 'Express.js' ,'Laravel', 'Angular', 'React' ,'Next.js', 'Socket.IO' , 'Bootstrap' , 'Tailwindcss','Electron.js', 'SQL','NOSQL','Redis','Redux','Strapi','Supabase'
+]
