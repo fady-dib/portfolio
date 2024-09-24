@@ -1,10 +1,18 @@
 import Portfolio from "../components/Portfolio/Portfolio";
 import {portfolio,skills} from "../utils/data"
-function home() {
+import React, { useState } from 'react';
+
+function Home() {
 
     const handleProjectsClick = () => {
         console.log(1)
     }
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <>
@@ -15,13 +23,34 @@ function home() {
                             <img src="images/fady_portfolio.svg" className="h-[72px] w-[72px] rounded-full object-cover"></img>
                             <p className="pl-5">FADY DIB</p>
                         </div>
-                        <div className="flex gap-16 text-[16px]">
+                        <div className="hidden md:flex gap-16 text-[16px]">
                             <p>HOME</p>
                             <p>ABOUT</p>
                             <p>PROJECTS</p>
                             <p>CONTACT</p>
                         </div>
+                        <div className="md:hidden">
+                            <button onClick={toggleMenu} className="focus:outline-none">
+                                <svg
+                                    className="w-8 h-8 text-black"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+                                </svg>
+                            </button>
+                        </div>
                     </header>
+                    {isMenuOpen && (
+                        <div className="md:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px]">
+                            <p onClick={toggleMenu}>HOME</p>
+                            <p onClick={toggleMenu}>ABOUT</p>
+                            <p onClick={toggleMenu}>PROJECTS</p>
+                            <p onClick={toggleMenu}>CONTACT</p>
+                        </div>
+                    )}
                 </div>
                 <div className="flex flex-col justify-center items-center">
                     <div className=" flex flex-col justify-center items-center pt-60 pb-48">
@@ -65,4 +94,4 @@ function home() {
     )
 }
 
-export default home;
+export default Home;
