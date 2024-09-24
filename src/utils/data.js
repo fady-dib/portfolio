@@ -2,7 +2,7 @@ export const portfolio = [
     {
         number: 20,
         title: 'Projects Completed',
-        text: 'Successfully delivered 20 diverse projects across web development, showcasing my expertise in building scalable and efficient web applications.'
+        text: 'Successfully delivered 20+ diverse projects across web development, showcasing my expertise in building scalable and efficient web applications.'
     },
     {
         number: 3,
@@ -12,7 +12,7 @@ export const portfolio = [
     {
         number: 15,
         title: 'Technologies Mastered',
-        text: 'Proficient in 20 key technologies including React, Angular, Node.js, and Tailwind CSS, ensuring flexibility and adaptability in any project.'
+        text: 'Proficient in 15+ key technologies including React, Angular, Node.js, and Tailwind CSS, ensuring flexibility and adaptability in any project.'
     }
 ];
 
