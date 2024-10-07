@@ -1,4 +1,5 @@
-import Portfolio from "../components/Portfolio/Portfolio";
+
+import About from "../components/About";
 import {portfolio,skills} from "../utils/data"
 import React, { useState } from 'react';
 
@@ -67,7 +68,7 @@ function Home() {
             <section id="about" className="pt-16 pb-4 bg-gray-100">
                 <p className="lato-black text-center text-[35px] relative pb-4">ABOUT ME <span className="underline-part"></span></p>
                 <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
-                <Portfolio portfolio={portfolio}></Portfolio>
+                <About portfolio={portfolio}></About>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 pt-20 container mx-auto px-5">
                     <div className="lg:col-span-6">
                         <p className="lato-bold text-[30px]">Get to know me!</p>
