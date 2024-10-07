@@ -73,7 +73,7 @@ function Home() {
                         <p className="lato-bold text-[30px]">Get to know me!</p>
                         <div className="text-[#666] text-[18px]">
                             <p className="pt-10 mb-5">I am a <span className="lato-bold">Full Stack Web Developer</span> with a focus on building and managing both the front-end and back-end of websites and web applications, contributing to the overall success of the product. Check out some of my work in the <span className="lato-bold">Projects</span> section.</p>
-                            <p>Feel free to connect or follow me on LinkedIn and Github. I'm open to <span className="lato-bold">job</span> opportunities where I can contribute, learn, and grow. If you have a role that aligns with my skills and experience, don't hesitate to reach out.</p>
+                            <p>Feel free to connect or follow me on LinkedIn and Github. I'm open to <span className="lato-bold">job</span> opportunities where I can contribute, learn, and grow. If you have a role that aligns with my skills and experience, don't hesitate to <span className="lato-bold">reach out.</span></p>
                         </div>
                     </div>
                     <div className="lg:col-span-6">
