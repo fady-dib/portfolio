@@ -6,7 +6,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 
 
-const Portfolio = ({ portfolio }) => {
+const About = ({ portfolio }) => {
     const sectionsRef = useRef([]);
     const [setupStatusMap, setSetupStatusMap] = useState(new Map());
 
@@ -142,4 +142,4 @@ const Portfolio = ({ portfolio }) => {
     );
 };
 
-export default Portfolio;
+export default About;
