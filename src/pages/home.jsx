@@ -1,7 +1,9 @@
 
 import About from "../components/About";
-import {portfolio,skills} from "../utils/data"
+import Projects from "../components/Projects";
+import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
+import logo from '../assets/images/fady_portfolio.svg'
 
 function Home() {
 
@@ -21,7 +23,7 @@ function Home() {
                 <div className="shadow-md shadow-gray-300 z-1000 bg-white">
                     <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
-                            <img src="images/fady_portfolio.svg" className="h-[72px] w-[72px] rounded-full object-cover"></img>
+                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover"></img>
                             <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="hidden md:flex gap-16 text-[16px]">
@@ -91,6 +93,10 @@ function Home() {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section id="projects" className="pt-16 pb-4 bg-gray-100">
+                <p className="lato-black text-center text-[35px] relative pb-4">PROJECTS <span className="underline-part"></span></p>
+                <Projects projects={projects}></Projects>
             </section>
         </>
     )

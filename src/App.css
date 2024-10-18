@@ -1,5 +1,5 @@
 .common-bg{
-  background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)),url('../public/images/common-bg.svg');
+  background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)),url('../src/assets/images/common-bg.svg');
 }
 
 .mouse{
@@ -92,3 +92,9 @@
       border-radius: 10px;
 
     }
+
+@media screen and (min-width : 550px) {
+  .carousel-item {
+    width: 475px !important;
+  }
+}

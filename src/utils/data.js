@@ -1,3 +1,8 @@
+import africell from '../assets/images/africell.jpg'
+import homeresa from '../assets/images/homeresa.jpg'
+import olm from '../assets/images/olm.jpg'
+
+
 export const portfolio = [
     {
         number: 20,
@@ -18,4 +23,22 @@ export const portfolio = [
 
 export const skills = [
     'HTML' , 'CSS', 'Javascript' , 'Typescript', 'PHP' , 'Node.js', 'Express.js' ,'Laravel', 'Angular', 'React' ,'Next.js', 'Socket.IO' , 'Bootstrap' , 'Tailwindcss','Electron.js', 'SQL','NOSQL','Redis','Redux','Strapi','Supabase'
+]
+
+export const projects = [
+    {
+        title : "Africell",
+        image : africell,
+        url: "https://www.africell.com/en/home"
+    },
+    {
+        title: "OLM",
+        image: olm,
+        url: "https://olm.org.lb/ar"
+    },
+    {
+        title: "HomeResa",
+        image: homeresa,
+        url: "https://www.homeresa.com/"
+    }
 ]
