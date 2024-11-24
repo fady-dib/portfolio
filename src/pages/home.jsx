@@ -4,6 +4,7 @@ import Projects from "../components/Projects";
 import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
 import logo from '../assets/images/fady_portfolio.svg'
+import Contact from "../components/Contact";
 
 function Home() {
 
@@ -23,7 +24,7 @@ function Home() {
                 <div className="shadow-md shadow-gray-300 z-1000 bg-white">
                     <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
-                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover"></img>
+                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO"></img>
                             <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="hidden md:flex gap-16 text-[16px]">
@@ -67,7 +68,7 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section id="about" className="pt-16 pb-4 bg-gray-100">
+            <section id="about" className="pt-16 pb-20 bg-gray-100">
                 <p className="lato-black text-center text-[35px] relative pb-4">ABOUT ME <span className="underline-part"></span></p>
                 <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
                 <About portfolio={portfolio}></About>
@@ -94,9 +95,15 @@ function Home() {
                     </div>
                 </div>
             </section>
-            <section id="projects" className="pt-16 pb-4 bg-gray-100">
+            <section id="projects" className="pt-16 pb-20 bg-[#fffff]">
                 <p className="lato-black text-center text-[35px] relative pb-4">PROJECTS <span className="underline-part"></span></p>
+                <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find some of the projects that I created</p>
                 <Projects projects={projects}></Projects>
+            </section>
+            <section id="contact" className="pt-16 pb-4 common-bg">
+                <p className="lato-black text-center text-[35px] relative pb-4">CONTACT <span className="underline-part"></span></p>
+                <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</p>
+                <Contact></Contact>
             </section>
         </>
     )

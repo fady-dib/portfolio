@@ -38,7 +38,7 @@ const Projects = ({projects}) => {
 
   return (
     <>
-          <Slider {...sliderSettings} className="slider flex flex-wrap justify-center items-center mb-5 pr-4 pt-4">
+          <Slider {...sliderSettings} className="slider flex flex-wrap justify-center items-center mb-5 pr-4 pt-20">
               {projects.map((project,index) => (
                   <div key={index} className={`item pl-4 flex flex-col`}>
                       <div className="w-full aspect-w-16 aspect-h-12">
