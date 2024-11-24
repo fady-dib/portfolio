@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <>
         <div className='flex justify-center items-center px-4 pt-20'>
-              <div className="w-full max-w-3xl bg-white p-10 rounded-lg shadow-lg">
+              <div className="w-full max-w-3xl bg-white md:p-10 p-5 rounded-lg shadow-lg">
                   {isSubmitted && (
                       <p className="text-green-500 text-center mb-4">Form submitted successfully!</p>
                   )}
