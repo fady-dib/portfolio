@@ -97,7 +97,7 @@ function Home() {
             </section>
             <section id="projects" className="pt-16 pb-20 bg-[#fffff]">
                 <p className="lato-black text-center text-[35px] relative pb-4">PROJECTS <span className="underline-part"></span></p>
-                <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find some of the projects that I created</p>
+                <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find some of the projects that I worked on</p>
                 <Projects projects={projects}></Projects>
             </section>
             <section id="contact" className="pt-16 pb-4 common-bg">
