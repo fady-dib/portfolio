@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SplitType from 'split-type';
+// import SplitType from 'split-type';
 import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -83,9 +83,9 @@ const About = ({ portfolio }) => {
     };
 
     const runSplit = () => {
-        const typeSplit = new SplitType('.split-lines', {
-            types: 'lines, words'
-        });
+        // const typeSplit = new SplitType('.split-lines', {
+        //     types: 'lines, words'
+        // });
 
         document.querySelectorAll('.line').forEach((line) => {
             const lineMask = document.createElement('div');
