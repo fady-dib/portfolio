@@ -5,6 +5,7 @@ import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
 import logo from '../assets/images/fady_portfolio.svg'
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 function Home() {
 
@@ -100,11 +101,12 @@ function Home() {
                 <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Here you will find some of the projects that I worked on</p>
                 <Projects projects={projects}></Projects>
             </section>
-            <section id="contact" className="pt-16 pb-4 common-bg">
+            <section id="contact" className="pt-16 pb-20 common-bg">
                 <p className="lato-black text-center text-[35px] relative pb-4">CONTACT <span className="underline-part"></span></p>
                 <p className="text-[#555] text-center pt-4 text-[20px] max-w-[700px] mx-auto">Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</p>
                 <Contact></Contact>
             </section>
+            <Footer></Footer>
         </>
     )
 }
