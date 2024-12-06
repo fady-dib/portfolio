@@ -5,6 +5,7 @@ import github from '../assets/images/github-ico.png'
 
 
 const Footer = () => {
+    const current_year = new Date().getFullYear();
     return (
         <footer className="bg-black text-white pt-20">
             <div className="container mx-auto px-5 ">
@@ -12,8 +13,7 @@ const Footer = () => {
                     <div className=' w-1/2 '>
                         <h2 className="text-xl lato-bold">FADY DIB</h2>
                         <p className="mt-5 text-sm">
-                            A Frontend focused Web Developer building the Frontend of Websites and
-                            Web Applications that leads to the success of the overall product
+                            A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product
                         </p>
                     </div>
                     <div className='mt-10 md:mt-0'>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
               
                 <p className="text-xs mt-20 text-center border-t border-[#444] py-10">
-                    &copy; Copyright 2024. Made by <span className="font-semibold">FADY DIB</span>
+                    &copy; Copyright {current_year}. Made by <span className="font-semibold">FADY DIB</span>
                 </p>
             </div>
         </footer>
