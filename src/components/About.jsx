@@ -121,7 +121,7 @@ const About = ({ portfolio }) => {
                     {portfolio.map((item, index) => (
                         <div
                             key={index}
-                            className="w-full md:w-1/2 lg:w-1/3 p-4 flex justify-center"
+                            className="w-full md:w-1/2 lg:w-1/3 py-4 md:px-4 flex justify-center"
                             ref={(el) => (sectionsRef.current[index] = el)}
                         >
                             <div className="bg-gray-800 p-5 w-full">
