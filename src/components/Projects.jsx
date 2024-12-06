@@ -38,9 +38,9 @@ const Projects = ({projects}) => {
 
   return (
     <>
-          <Slider {...sliderSettings} className="slider flex flex-wrap justify-center items-center mb-5 pr-4 pt-20">
+          <Slider {...sliderSettings} className="slider flex flex-wrap justify-center items-center mb-5 pr-4 pt-20 mx-auto px-5 container">
               {projects.map((project,index) => (
-                  <div key={index} className={`item pl-4 flex flex-col`}>
+                  <div key={index} className={`item custom:pl-6 flex flex-col`}>
                       <div className="w-full aspect-w-16 aspect-h-12">
                       {project.url ? (
                           <a href={project.url} target="_blank" rel="noopener noreferrer">

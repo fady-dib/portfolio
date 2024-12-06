@@ -98,3 +98,7 @@
     width: 475px !important;
   }
 }
+
+.slick-dots{
+  position : relative !important
+}
