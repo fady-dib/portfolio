@@ -4,6 +4,8 @@ import Projects from "../components/Projects";
 import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
 import logo from '../assets/images/fady_portfolio.svg'
+import menu from '../assets/images/icons8-hamburger.svg'
+import close_icon from '../assets/images/icons8-close.svg'
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -22,34 +24,31 @@ function Home() {
     return (
         <>
             <section id="home" className="common-bg ">
-                <div className="shadow-md shadow-gray-300 z-1000 bg-white">
+                <div className="shadow-md shadow-gray-300 z-1000 bg-white relative">
                     <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
                             <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO"></img>
                             <p className="pl-5">FADY DIB</p>
                         </div>
-                        <div className="hidden md:flex gap-16 text-[16px]">
+                        <div className="hidden lg:flex gap-16 text-[16px]">
                             <p>HOME</p>
                             <p>ABOUT</p>
                             <p>PROJECTS</p>
                             <p>CONTACT</p>
                         </div>
-                        <div className="md:hidden">
+                        <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
-                                <svg
-                                    className="w-8 h-8 text-black"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-                                </svg>
+                                { isMenuOpen ? (
+                                    <img src={close_icon} alt="CLOSE MENU" className="h-[35px] w-[35px] transition-transform duration-300 ease-in-out rotate-180" />
+                                ) 
+                                : 
+                                    (<img src={menu} alt="BURGER MENU" className="h-[35px] w-[35px] transform transition-transform duration-300 ease-in-out rotate-0"></img> )
+                                } 
                             </button>
                         </div>
                     </header>
                     {isMenuOpen && (
-                        <div className="md:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px]">
+                        <div className="absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50">
                             <p onClick={toggleMenu}>HOME</p>
                             <p onClick={toggleMenu}>ABOUT</p>
                             <p onClick={toggleMenu}>PROJECTS</p>
