@@ -97,7 +97,7 @@ const Contact = () => {
                           <textarea
                               id="message"
                               placeholder="Enter Your Message"
-                              rows="5"
+                              rows="10"
                               value={formData.message}
                               onChange={handleChange}
                               className="w-full px-4 py-4 bg-gray-100 text-gray-700 border rounded-md outline-none border-none overflow-y-auto resize-none"
