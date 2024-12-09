@@ -10,7 +10,7 @@ const Footer = () => {
         <footer className="bg-black text-white pt-20">
             <div className="container mx-auto px-5 ">
                 <div className='flex flex-col md:flex-row md:justify-between'>
-                    <div className=' w-1/2 '>
+                    <div className='w-4/5 md:w-2/5 '>
                         <h2 className="text-xl lato-bold">FADY DIB</h2>
                         <p className="mt-5 text-sm">
                             A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product
