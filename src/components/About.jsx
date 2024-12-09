@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import SplitType from 'split-type';
+import SplitType from 'split-type';
 import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -83,9 +83,9 @@ const About = ({ portfolio }) => {
     };
 
     const runSplit = () => {
-        // const typeSplit = new SplitType('.split-lines', {
-        //     types: 'lines, words'
-        // });
+        const typeSplit = new SplitType('.split-lines', {
+            types: 'lines, words'
+        });
 
         document.querySelectorAll('.line').forEach((line) => {
             const lineMask = document.createElement('div');
@@ -121,13 +121,13 @@ const About = ({ portfolio }) => {
                     {portfolio.map((item, index) => (
                         <div
                             key={index}
-                            className="w-full md:w-1/2 lg:w-1/3 py-4 md:px-4 flex justify-center"
+                            className="w-full md:w-2/4 lg:w-1/3 py-4 md:px-4 flex justify-center"
                             ref={(el) => (sectionsRef.current[index] = el)}
                         >
-                            <div className="bg-gray-800 p-5 w-full">
+                            <div className="bg-gray-800 p-5 w-full min-h-[400px] flex flex-col justify-between">
                                 <p className="text-gray-500 text-2xl">{item.title}</p>
                                 <div className="n-scroll">
-                                    <h3 className="mt-4 mb-5 pb-5">
+                                    <h3 className="pb-14">
                                         <span id="number" data-number={item.number} className="dynamic-number"></span>
                                         <span>+</span>
                                     </h3>
