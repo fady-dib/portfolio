@@ -34,10 +34,10 @@ function Home() {
                             <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="hidden lg:flex gap-16 text-[16px]">
-                            <p onClick={() => window.location.reload()} className="cursor-pointer">HOME</p>
-                            <p onClick={() => scrollToSection('about')} className="cursor-pointer" >ABOUT</p>
-                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer" >PROJECTS</p>
-                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer">CONTACT</p>
+                            <p onClick={() => window.location.reload()} className="cursor-pointer relative group">HOME <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('about')} className="cursor-pointer relative group" >ABOUT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer relative group" >PROJECTS <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer relative group">CONTACT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
                         </div>
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
