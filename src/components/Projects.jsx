@@ -27,7 +27,7 @@ const Projects = ({projects}) => {
     }
 
     const sliderSettings = {
-        autoplay: true,
+        autoplay: false,
         dots: true,
         arrows: true,
         infinite: true,
