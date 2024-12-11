@@ -102,3 +102,42 @@
 .slick-dots{
   position : relative !important
 }
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  height: 135px;
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  z-index: 100;
+}
+
+.slick-arrow.slick-next{
+  padding-left: 40px;
+}
+
+.slick-arrow.slick-prev {
+  padding-right: 40px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+
+}
+
+.arrows {
+  height: 50px;
+  width: 50px;
+}
+
+.slick-slider {
+  max-width : 1200px !important
+}
