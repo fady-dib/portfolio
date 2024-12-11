@@ -1,6 +1,11 @@
 import africell from '../assets/images/africell.jpg'
 import homeresa from '../assets/images/homeresa.jpg'
 import olm from '../assets/images/olm.jpg'
+import loto from '../assets/images/logo-ball.svg';
+import neo from '../assets/images/neo-4496.svg'
+import mabanee from '../assets/images/mabanee.png';
+import you_sport from '../assets/images/yousport-logo.png';
+import yellow_door from '../assets/images/yellow_door.png'
 
 
 export const portfolio = [
@@ -27,7 +32,22 @@ export const skills = [
 
 export const projects = [
     {
-        title : "Africell",
+        title: "LOTO IRAQ",
+        image: loto,
+        url: "https://iraqloto.com/en"
+    },
+    {
+        title: "MABANEE",
+        image: mabanee,
+        url: "https://mabanee.com/en"
+    },
+    {
+        title: "HOMERESA",
+        image: homeresa,
+        url: "https://www.homeresa.com/"
+    },
+    {
+        title : "AFRICELL",
         image : africell,
         url: "https://www.africell.com/en/home"
     },
@@ -37,8 +57,19 @@ export const projects = [
         url: "https://olm.org.lb/ar"
     },
     {
-        title: "HomeResa",
-        image: homeresa,
-        url: "https://www.homeresa.com/"
-    }
+        title: "YELLOW DOOR",
+        image: yellow_door,
+        url: "https://www.yellowdoorenergy.com/"
+    },
+    {
+        title: "YOU SPORT",
+        image: you_sport,
+        url: "https://watchyousport.com/en"
+    },
+    {
+        title: "NEO",
+        image: neo,
+        url: "https://neo.iq/en"
+    },
+
 ]
