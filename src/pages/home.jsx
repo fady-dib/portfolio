@@ -11,9 +11,12 @@ import Footer from "../components/Footer";
 
 function Home() {
 
-    const handleProjectsClick = () => {
-        console.log(1)
-    }
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId); 
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' }); 
+        }
+    };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,10 +34,10 @@ function Home() {
                             <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="hidden lg:flex gap-16 text-[16px]">
-                            <p>HOME</p>
-                            <p>ABOUT</p>
-                            <p>PROJECTS</p>
-                            <p>CONTACT</p>
+                            <p onClick={() => window.location.reload()} className="cursor-pointer">HOME</p>
+                            <p onClick={() => scrollToSection('about')} className="cursor-pointer" >ABOUT</p>
+                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer" >PROJECTS</p>
+                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer">CONTACT</p>
                         </div>
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
@@ -49,10 +52,10 @@ function Home() {
                     </header>
                     {isMenuOpen && (
                         <div className="absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50">
-                            <p onClick={toggleMenu}>HOME</p>
-                            <p onClick={toggleMenu}>ABOUT</p>
-                            <p onClick={toggleMenu}>PROJECTS</p>
-                            <p onClick={toggleMenu}>CONTACT</p>
+                            <p onClick={() => window.location.reload()} className="cursor-pointer">HOME</p>
+                            <p onClick={() => scrollToSection('about')} className="cursor-pointer">ABOUT</p>
+                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer">PROJECTS</p>
+                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer">CONTACT</p>
                         </div>
                     )}
                 </div>
@@ -60,7 +63,7 @@ function Home() {
                     <div className=" flex flex-col justify-center items-center pt-60 pb-48">
                         <p className="lato-black text-[60px] leading-none text-center">HEY, I'M FADY DIB</p>
                         <p className="text-center max-w-[800px] text-[22px] py-12">A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product</p>
-                        <button className=" bg-[#7843E9] duration-700 hover:-translate-y-1 lato-black text-white py-4 px-20 rounded text-[20px]" onClick={handleProjectsClick()}>PROJECTS</button>
+                        <button className=" bg-[#7843E9] duration-700 hover:-translate-y-1 lato-black text-white py-4 px-20 rounded text-[20px]" onClick={() => scrollToSection('projects')}>PROJECTS</button>
                     </div>
                     <div className="py-16">
                         <div className="mouse">
