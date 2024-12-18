@@ -115,24 +115,24 @@ const About = ({ portfolio }) => {
 
 
     return (
-        <div className="pt-20 pb-4 bg-gray-100 text-white">
+        <div className="pt-20 pb-4 text-white">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center">
                     {portfolio.map((item, index) => (
                         <div
                             key={index}
-                            className="w-full md:w-2/4 lg:w-1/3 py-4 md:px-4 flex justify-center"
+                            className="w-full md:w-2/4 lg:w-2/4 xl:w-1/3 py-4 md:px-5 flex justify-center"
                             ref={(el) => (sectionsRef.current[index] = el)}
                         >
-                            <div className="bg-gray-800 p-5 w-full min-h-[400px] flex flex-col justify-between">
-                                <p className="text-gray-500 text-2xl">{item.title}</p>
+                            <div className="bg-[#204958] p-5 w-full flex min-h-[370px] flex-col justify-start rounded-lg">
+                                <p className="text-[#bbe8c8] text-2xl">{item.title}</p>
                                 <div className="n-scroll">
-                                    <h3 className="pb-14">
+                                    <h3 className="pb-20">
                                         <span id="number" data-number={item.number} className="dynamic-number"></span>
                                         <span>+</span>
                                     </h3>
                                 </div>
-                                <p className="pl-5 ml-4 text-gray-500 text-lg split-lines">{item.text}</p>
+                                <p className="text-white text-lg split-lines mr-5">{item.text}</p>
                             </div>
                         </div>
                     ))}
