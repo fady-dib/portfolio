@@ -3,7 +3,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
-import logo from '../assets/images/fady_portfolio.svg'
+import logo from '../assets/images/fady_portfolio_2.png'
 import menu from '../assets/images/icons8-hamburger.svg'
 import close_icon from '../assets/images/icons8-close.svg'
 import Contact from "../components/Contact";
@@ -27,17 +27,17 @@ function Home() {
     return (
         <>
             <section id="home" className="common-bg ">
-                <div className="shadow-md shadow-gray-300 z-1000 bg-white relative">
+                <div className="shadow-md shadow-gray-300 z-1000 bg-[#214655] relative text-white">
                     <header className="flex justify-between items-center py-5 lato-bold text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
                             <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO"></img>
                             <p className="pl-5">FADY DIB</p>
                         </div>
                         <div className="hidden lg:flex gap-16 text-[16px]">
-                            <p onClick={() => window.location.reload()} className="cursor-pointer relative group">HOME <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('about')} className="cursor-pointer relative group" >ABOUT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer relative group" >PROJECTS <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer relative group">CONTACT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#7843E9] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => window.location.reload()} className="cursor-pointer relative group hover:text-[#b8e4c3] transition-all duration-500">HOME <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('about')} className="cursor-pointer relative group hover:text-[#b8e4c3]" >ABOUT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer relative group hover:text-[#b8e4c3]" >PROJECTS <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer relative group hover:text-[#b8e4c3]">CONTACT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
                         </div>
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
@@ -51,7 +51,7 @@ function Home() {
                         </div>
                     </header>
                     {isMenuOpen && (
-                        <div className="absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50">
+                        <div className="absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50 text-[#214959]">
                             <p onClick={() => window.location.reload()} className="cursor-pointer">HOME</p>
                             <p onClick={() => scrollToSection('about')} className="cursor-pointer">ABOUT</p>
                             <p onClick={() => scrollToSection('projects')} className="cursor-pointer">PROJECTS</p>
@@ -59,17 +59,18 @@ function Home() {
                         </div>
                     )}
                 </div>
-                <div className="flex flex-col justify-center items-center mx-auto px-5 container">
-                    <div className=" flex flex-col justify-center items-center pt-60 pb-48">
-                        <p className="lato-black text-[60px] leading-none text-center">HEY, I'M FADY DIB</p>
-                        <p className="text-center max-w-[800px] text-[22px] py-12">A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product</p>
-                        <button className=" bg-[#7843E9] duration-700 hover:-translate-y-1 lato-black text-white py-4 px-20 rounded text-[20px]" onClick={() => scrollToSection('projects')}>PROJECTS</button>
+                {/* <div className="flex flex-col justify-center items-center mx-auto px-5 container "> */}
+                <div className=" flex flex-col justify-center  pt-52 pb-48 text-[#1f4958] mx-auto px-5 container">
+                        <p className="lato-black text-[22px] leading-none">HEY, I'M</p>
+                        <p className="lato-black text-[60px] leading-none pt-6">FADY DIB</p>
+                        <p className="max-w-[800px] text-[22px] py-12">A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product</p>
+                    <button className=" bg-[#204958] duration-700 hover:-translate-y-1 lato-black text-white py-4 rounded text-[20px] w-[200px] text-center" onClick={() => scrollToSection('projects')}>PROJECTS</button>
                     </div>
-                    <div className="py-16">
+                    {/* <div className="py-16">
                         <div className="mouse">
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
             </section>
             <section id="about" className="pt-16 pb-20 bg-gray-100 ">
                 <div className="mx-auto px-5 container">
