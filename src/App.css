@@ -85,11 +85,11 @@
     .underline-part::after {
       content: "";
       display: block;
-      width: 25px;
+      width: 50px;
       height: 6px;
-      background-color: #7843E9;
+      background-color: #1f4958;
       position: absolute;
-      left: 49.5%;
+      left: 0;
       bottom: 0;
       border-radius: 10px;
 
