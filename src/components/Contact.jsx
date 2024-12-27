@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <>
         <div className='flex justify-center items-center px-4 pt-20'>
-              <div className="w-full max-w-3xl bg-white md:p-10 p-5 rounded-lg shadow-lg">
+              <div className="w-full max-w-3xl bg-white md:p-10 p-5 rounded-lg shadow-lg border border-[#204958]">
                   {isSubmitted && (
                       <p className="text-green-500 text-center mb-4">Form submitted successfully!</p>
                   )}
@@ -58,8 +58,10 @@ const Contact = () => {
                   )}
                   <form onSubmit={handleSubmit}>
                       {/* Name Field */}
-                      <div className="mb-6">
-                          <label htmlFor="name" className="block text-[#666] lato-bold mb-2">
+                      <div className="grid grid-cols-1 lg:grid-cols-10 gap-20 mb-6">
+
+                          <div className="lg:col-span-5">
+                          <label htmlFor="name" className="block text-[#666] inter-bold mb-2">
                               Name
                           </label>
                           <input
@@ -74,8 +76,8 @@ const Contact = () => {
                       </div>
 
                       {/* Email Field */}
-                      <div className="mb-6">
-                          <label htmlFor="email" className="block text-[#666] lato-bold mb-2">
+                          <div className="lg:col-span-5">
+                          <label htmlFor="email" className="block text-[#666] inter-bold mb-2">
                               Email
                           </label>
                           <input
@@ -88,10 +90,11 @@ const Contact = () => {
                               required
                           />
                       </div>
+                      </div>
 
                       {/* Message Field */}
                       <div className="mb-6">
-                          <label htmlFor="message" className="block  text-[#666] lato-bold mb-2">
+                          <label htmlFor="message" className="block  text-[#666] inter-bold mb-2">
                               Message
                           </label>
                           <textarea
@@ -111,7 +114,7 @@ const Contact = () => {
                             type="submit"
                             disabled={isSubmitting} 
                             style={{ marginLeft: "auto" }}
-                            className="w-full md:w-[200px] py-4 bg-[#7843E9] text-white rounded-md focus:outline-none duration-700 hover:-translate-y-1 lato-bold flex justify-center items-center"
+                              className="w-full md:w-[200px] py-4 bg-[#204958] text-white rounded-md focus:outline-none duration-700 hover:-translate-y-1 inter-bold flex justify-center items-center"
                         >
                               {isSubmitting ? (
                                   <div className="animate-spin border-2 border-white border-t-transparent rounded-full w-6 h-6"></div>
