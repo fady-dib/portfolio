@@ -1,8 +1,5 @@
 .common-bg{
-  background: url('../src/assets/images/background.png') no-repeat;
-  height : 1000px;
-  /* display : flex;
-  align-items: center; */
+  background: url('../src/assets/images/background.png') no-repeat center/cover;
 }
 
 .mouse{
