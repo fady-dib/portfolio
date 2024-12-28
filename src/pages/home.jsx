@@ -78,17 +78,17 @@ function Home() {
             <section id="about" className="pt-16 pb-20">
                 <div className="mx-auto px-5 container">
                     <p className="inter-black text-[35px] relative pb-4 text-[#1f4958]">ABOUT ME <span className="underline-part"></span></p>
-                            <div className="text-[#1f4958] text-[18px]">
+                    <div className="text-[#1f4958] text-[20px] max-w-4xl">
                                 <p className="pt-10 mb-5">I am a <span className="inter-bold">Full Stack Web Developer</span> with a focus on building and managing both the front-end and back-end of websites and web applications, contributing to the overall success of the product. Check out some of my work in the <span className="inter-bold">Projects</span> section.</p>
                                 <p>Feel free to connect or follow me on LinkedIn and Github. I'm open to <span className="inter-bold">job</span> opportunities where I can contribute, learn, and grow. If you have a role that aligns with my skills and experience, don't hesitate to <span className="inter-bold">reach out.</span></p>
                             </div>
                     <About portfolio={portfolio}></About>
-                    <p className="inter-bold text-[22px] text-[#1f4958]">My skills</p>
-                        <div className="flex flex-wrap gap-4 pt-10">
+                    <p className="inter-bold text-[25px] text-[#1f4958] mt-10">My skills</p>
+                    <div className="flex flex-wrap gap-4 pt-10  max-w-4xl">
                             {skills.map((skill, index) => (
                                 <div
                                     key={index}
-                                    className="bg-gray-200 text-center py-2 px-4 rounded-lg shadow-md"
+                                    className="bg-[#E0F5FF] border border-[#32819F] text-[#1F4959] text-center py-2 px-4 rounded-lg shadow-md"
                                 >
                                     {skill}
                                 </div>
