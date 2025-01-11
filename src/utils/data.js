@@ -1,5 +1,5 @@
 import africell from '../assets/images/africell.jpg'
-import homeresa from '../assets/images/homeresa.jpg'
+import homeresa from '../assets/images/homeresa.png'
 import olm from '../assets/images/olm.jpg'
 import loto from '../assets/images/logo-ball.svg';
 import neo from '../assets/images/neo-4496.svg'
