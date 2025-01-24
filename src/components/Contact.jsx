@@ -58,9 +58,7 @@ const Contact = () => {
                   )}
                   <form onSubmit={handleSubmit}>
                       {/* Name Field */}
-                      <div className="grid grid-cols-1 lg:grid-cols-10 gap-20 mb-6">
-
-                          <div className="lg:col-span-5">
+                    <div className="mb-6">
                           <label htmlFor="name" className="block text-[#666] inter-bold mb-2">
                               Name
                           </label>
@@ -76,7 +74,7 @@ const Contact = () => {
                       </div>
 
                       {/* Email Field */}
-                          <div className="lg:col-span-5">
+                    <div className="mb-6">
                           <label htmlFor="email" className="block text-[#666] inter-bold mb-2">
                               Email
                           </label>
@@ -89,7 +87,6 @@ const Contact = () => {
                               className="w-full px-4 py-4 bg-gray-100 text-[#333] border rounded-md outline-none border-none"
                               required
                           />
-                      </div>
                       </div>
 
                       {/* Message Field */}
