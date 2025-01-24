@@ -62,16 +62,24 @@ function Home() {
                         </div>
                     )}
                 </div>
-                <div className="pt-40 pb-48 mx-auto container px-5">
-                    <div className="max-w-[590px] lg:max-h-[469px] rounded-[60px] bg-[#2B4A4D] bg-opacity-[62%] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#CDF8C9]">
-                        <div className="text-white mx-10 py-10">
-                                <p className="inter-black text-[35px] leading-none">HEY, I'M</p>
-                                <p className="inter-black text-[60px] leading-none pt-6">FADY DIB</p>
-                                <p className="max-w-md text-[20px] py-12 align-baseline">A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product</p>
-                            <button className=" bg-[#1F4959] duration-700 hover:-translate-y-1 hover:bg-[#1A3641] hover:inter-bold hover:text-[#CDF8C9] inter-medium text-white py-4 rounded-[12px] border-2 border-[#CDF8C9] text-[20px] w-[200px] text-center" onClick={() => scrollToSection('projects')}>PROJECTS</button>
+                <div className="pt-20 pb-24 md:pt-40 md:pb-48 mx-auto container px-5">
+                    <div className="max-w-full md:max-w-[590px] lg:max-h-[469px] rounded-[60px] bg-[#2B4A4D] bg-opacity-[62%] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#CDF8C9]">
+                        <div className="text-white px-6 py-8 md:mx-10 md:py-10">
+                            <p className="inter-black text-[28px] md:text-[35px] leading-none">HEY, I'M</p>
+                            <p className="inter-black text-[40px] md:text-[60px] leading-none pt-4 md:pt-6">FADY DIB</p>
+                            <p className="max-w-md text-[16px] md:text-[20px] py-6 md:py-12">
+                                A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product.
+                            </p>
+                            <button
+                                className="bg-[#1F4959] duration-700 hover:-translate-y-1 hover:bg-[#1A3641] hover:inter-bold hover:text-[#CDF8C9] inter-medium text-white py-4 rounded-[8px] md:rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px] w-full max-w-[250px] "
+                                onClick={() => scrollToSection('projects')}
+                            >
+                                PROJECTS
+                            </button>
                         </div>
-                    </div> 
+                    </div>
                 </div>
+
                     {/* <div className="py-16">
                         <div className="mouse">
                         </div>
