@@ -71,7 +71,7 @@ function Home() {
                                 A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product.
                             </p>
                             <button
-                                className="bg-[#1F4959] duration-700 hover:-translate-y-1 hover:bg-[#1A3641] hover:inter-bold hover:text-[#CDF8C9] inter-medium text-white py-4 rounded-[8px] md:rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px] w-full max-w-[250px] "
+                                className="bg-[#1F4959] duration-700 hover:-translate-y-1 hover:bg-[#1A3641] hover:inter-bold hover:text-[#CDF8C9] inter-medium text-white py-4 rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px] w-full max-w-[250px] "
                                 onClick={() => scrollToSection('projects')}
                             >
                                 PROJECTS
