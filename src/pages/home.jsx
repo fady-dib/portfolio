@@ -12,9 +12,11 @@ import Footer from "../components/Footer";
 function Home() {
 
     const scrollToSection = (sectionId) => {
-        const section = document.getElementById(sectionId); 
+        const section = document.getElementById(sectionId);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' }); 
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100); 
         }
         setIsMenuOpen(false);
     };
