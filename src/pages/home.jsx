@@ -121,6 +121,14 @@ function Home() {
                 </div>
                 <Contact></Contact>
             </section>
+            <a
+                href="https://wa.me/96170544067"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-6 right-6 md:bottom-10 md:right-10 bg-[#25D366] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#1EBE5F] transition duration-700 hover:-translate-y-1"
+            >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-8 w-8 md:h-10 md:w-10" />
+            </a>
             <Footer></Footer>
         </>
     )
