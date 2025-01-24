@@ -53,7 +53,7 @@ const Projects = ({ projects }) => {
                             {group.map((project, index) => (
                                 <div
                                     key={index}
-                                    className="project-item w-[280px] sm:w-[350px] h-[300px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2"
+                                    className="project-item w-[280px] sm:w-[350px] h-[320px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2"
                                 >
                                     <div className="w-[280px] h-[250px] flex items-center justify-center rounded-md overflow-hidden">
                                         {project.url ? (
@@ -72,7 +72,7 @@ const Projects = ({ projects }) => {
                                             />
                                         )}
                                     </div>
-                                    <div className="w-full bg-[#CDF8C9] flex items-center justify-center py-4 rounded-b-lg">
+                                    <div className="w-full bg-[#CDF8C9] flex items-center justify-center py-5 rounded-b-lg">
                                         <p className="text-center text-base font-semibold">{project.title}</p>
                                     </div>
                                 </div>
