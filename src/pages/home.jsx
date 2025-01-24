@@ -16,6 +16,7 @@ function Home() {
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' }); 
         }
+        setIsMenuOpen(false);
     };
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
