@@ -53,16 +53,14 @@ const Projects = ({ projects }) => {
                             {group.map((project, index) => (
                                 <div
                                     key={index}
-                                    // className="project-item w-[280px] sm:w-[350px] h-[320px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2">
-                                    className="project-item w-[280px] sm:w-[350px] h-[320px] flex flex-col bg-white rounded-lg shadow-lg 
-    items-center justify-center pt-2 transition-all duration-300 ease-in-out cursor-pointer">
+                                    className="project-item w-[280px] sm:w-[350px] h-[320px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2 cursor-pointer">
 
                                     <div className="w-[280px] h-[250px] flex items-center justify-center rounded-md overflow-hidden">
                                         {project.url ? (
                                             <a href={project.url} target="_blank" rel="noopener noreferrer">
                                                 <img
                                                     src={project.image}
-                                                    className="max-w-full max-h-full object-contain p-2 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out hover:scale-105"
+                                                    className="max-w-full max-h-full object-contain p-2 transition-all duration-700 ease-in-out hover:scale-110"
                                                     alt={project.title}
                                                 />
                                             </a>
