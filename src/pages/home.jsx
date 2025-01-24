@@ -96,10 +96,10 @@ function Home() {
                         </div>
                 </div>
             </section>
-            <section id="projects" className="pt-16 pb-20 bg-[#fffff]">
+            <section id="projects" className="pt-16 pb-20 common-bg-2">
                 <div className="mx-auto px-5 container">
-                    <p className="inter-black text-[35px] relative pb-4">PROJECTS <span className="underline-part"></span></p>
-                    <p className="text-[#555] pt-4 text-[20px] max-w-[700px]">Here you will find some of the projects that I worked on</p>
+                    <p className="inter-black text-[35px] relative pb-4 text-white">PROJECTS <span className="underline-part-white"></span></p>
+                    <p className="text-white pt-4 text-[20px] max-w-[700px]">Here you will find some of the projects that I worked on</p>
                 </div>
                 <Projects projects={projects}></Projects>
             </section>
