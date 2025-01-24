@@ -53,7 +53,7 @@ const Projects = ({ projects }) => {
                             {group.map((project, index) => (
                                 <div
                                     key={index}
-                                    className="project-item w-[350px] h-[300px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2"
+                                    className="project-item w-[280px] sm:w-[350px] h-[300px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2"
                                 >
                                     <div className="w-[280px] h-[250px] flex items-center justify-center rounded-md overflow-hidden">
                                         {project.url ? (
