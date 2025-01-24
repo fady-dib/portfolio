@@ -209,3 +209,7 @@
 .project-item {
   text-align: center;
 } */
+
+.grecaptcha-badge {
+  z-index: 9999 !important;
+}

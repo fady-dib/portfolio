@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-const Contact = () => {
+const ContactForm = () => {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -12,6 +13,18 @@ const Contact = () => {
     const [isSubmitting, setIsSubmitting] = useState(false); 
     const [isSubmitted, setIsSubmitted] = useState(false); 
     const [error, setError] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState("");
+
+
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
+    useEffect(() => {
+        if (!executeRecaptcha) return;
+
+        executeRecaptcha("submit").then((token) => {
+            setRecaptchaToken(token);
+        });
+    }, [executeRecaptcha]);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -21,14 +34,24 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (!recaptchaToken) {
+            alert("reCAPTCHA verification failed. Please refresh the page and try again.");
+            return;
+        }
+
         setError(false); 
         setIsSubmitting(true);
+
+        const dataToSend = {
+            ...formData,
+            "g-recaptcha-response": recaptchaToken, 
+        };
 
         emailjs
             .send(
                 "service_btg0hmp", 
                 "template_x8vxheh",
-                formData,
+                dataToSend,
                 "q9y9LUIeO6VI4BSo3" 
             )
             .then(
@@ -126,5 +149,13 @@ const Contact = () => {
     </>
   )
 }
+
+const Contact = () => {
+    return (
+        <GoogleReCaptchaProvider reCaptchaKey="6LeBMMIqAAAAAL_OwMDNqGpTTO21ZpvlOFgWIdTH">
+            <ContactForm />
+        </GoogleReCaptchaProvider>
+    );
+};
 
 export default Contact
