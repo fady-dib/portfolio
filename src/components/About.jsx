@@ -1,51 +1,50 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SplitType from 'split-type';
 import gsap from "gsap";
-// import { useGSAP } from "@gsap/react";
 import ScrollTrigger from 'gsap/ScrollTrigger';
-
-
 
 const About = ({ portfolio }) => {
     const sectionsRef = useRef([]);
-    const [setupStatusMap, setSetupStatusMap] = useState(new Map());
+    const visitedSectionsRef = useRef(new Set());
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-
         runSplit();
+
+        setupDynamicNumbers();
+
+        setTimeout(() => {
+            setupDynamicNumbers();
+        }, 100);
+
         const handleScroll = () => {
             setupDynamicNumbers();
         };
 
         window.addEventListener('scroll', handleScroll);
-        setupDynamicNumbers();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [setupStatusMap]);
+    },); 
 
     const isInViewport = (element) => {
+        if (!element) return false;
         const rect = element.getBoundingClientRect();
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top < window.innerHeight && rect.bottom > 0
         );
     };
 
     const setupDynamicNumbers = () => {
-        sectionsRef.current.forEach((section, index) => {
-            if (isInViewport(section) && !setupStatusMap.has(section)) {
+        sectionsRef.current.forEach((section) => {
+            if (section && isInViewport(section) && !visitedSectionsRef.current.has(section)) {
                 const dynamicNumberElement = section.querySelector('.dynamic-number');
 
-                if (dynamicNumberElement.childElementCount === 0) {
-                    const startNum = parseInt(dynamicNumberElement.getAttribute('data-number'));
+                if (dynamicNumberElement && dynamicNumberElement.childElementCount === 0) {
+                    const startNum = parseInt(dynamicNumberElement.getAttribute('data-number'), 10);
                     setup(startNum, dynamicNumberElement);
-
-                    setSetupStatusMap((prevMap) => new Map(prevMap.set(section, true)));
+                    visitedSectionsRef.current.add(section);
                 }
             }
         });
@@ -83,9 +82,7 @@ const About = ({ portfolio }) => {
     };
 
     const runSplit = () => {
-        const typeSplit = new SplitType('.split-lines', {
-            types: 'lines, words'
-        });
+        new SplitType('.split-lines', { types: 'lines, words' });
 
         document.querySelectorAll('.line').forEach((line) => {
             const lineMask = document.createElement('div');
@@ -112,7 +109,6 @@ const About = ({ portfolio }) => {
             });
         });
     };
-
 
     return (
         <div className="pt-20 pb-4 text-white">
