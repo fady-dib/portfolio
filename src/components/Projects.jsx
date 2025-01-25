@@ -45,7 +45,7 @@ const Projects = ({ projects }) => {
             <Slider {...sliderSettings} className="slider">
                 {groupedProjects.map((group, groupIndex) => (
                     <div key={groupIndex} className="slide-group flex flex-col items-center">
-                        <div className={`grid gap-8 
+                        <div className={`grid gap-16 
                             ${groupSize >= 6 ? 'grid-cols-3' :
                                 groupSize >= 4 ? 'grid-cols-2' :
                                     'grid-cols-1'}
