@@ -125,7 +125,7 @@ function Home() {
                 href="https://wa.me/96170544067"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-5 left-2 bg-[#25D366] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#1EBE5F] transition duration-700 hover:-translate-y-1 z-10"
+                className="fixed bottom-3 left-2 bg-[#25D366] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#1EBE5F] transition duration-700 hover:-translate-y-1 z-10"
             >
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-8 w-8 md:h-10 md:w-10" />
             </a>
