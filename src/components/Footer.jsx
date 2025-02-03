@@ -7,7 +7,7 @@ import github from '../assets/images/github-ico.png'
 const Footer = () => {
     const current_year = new Date().getFullYear();
     return (
-        <footer className="bg-[#1F4959] text-white pt-20">
+        <footer className="bg-[#1F4959] text-white pt-16">
             <div className="container mx-auto px-5 ">
                 <div className='flex flex-col md:flex-row md:justify-between'>
                     <div className='w-4/5 md:w-2/5 '>
