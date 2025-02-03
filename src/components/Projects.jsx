@@ -75,7 +75,7 @@ const Projects = ({ projects }) => {
                                         )}
                                     </div>
                                     <div className="w-full bg-[#CDF8C9] flex items-center justify-center py-5 rounded-b-lg">
-                                        <p className="text-center text-base font-semibold">{project.title}</p>
+                                        <p className="text-center text-base font-semibold text-[#1F4959]">{project.title}</p>
                                     </div>
                                 </div>
                             ))}

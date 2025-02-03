@@ -82,7 +82,7 @@ const ContactForm = () => {
                   <form onSubmit={handleSubmit}>
                       {/* Name Field */}
                     <div className="mb-6">
-                          <label htmlFor="name" className="block text-[#666] inter-bold mb-2">
+                          <label htmlFor="name" className="block text-[#1F4959] inter-bold mb-2">
                               Name
                           </label>
                           <input
@@ -91,14 +91,14 @@ const ContactForm = () => {
                               value={formData.name}
                               onChange={handleChange}
                               placeholder="Enter Your Name"
-                              className="w-full px-4 py-4 bg-gray-100 text-gray-700 border outline-none border-none rounded-md "
+                              className="w-full px-4 py-4 bg-gray-100 text-[#1F4959] border outline-none border-none rounded-md "
                               required
                           />
                       </div>
 
                       {/* Email Field */}
                     <div className="mb-6">
-                          <label htmlFor="email" className="block text-[#666] inter-bold mb-2">
+                          <label htmlFor="email" className="block text-[#1F4959] inter-bold mb-2">
                               Email
                           </label>
                           <input
@@ -107,14 +107,14 @@ const ContactForm = () => {
                               placeholder="Enter Your Email"
                               value={formData.email}
                               onChange={handleChange}
-                              className="w-full px-4 py-4 bg-gray-100 text-[#333] border rounded-md outline-none border-none"
+                              className="w-full px-4 py-4 bg-gray-100 text-[#1F4959] border rounded-md outline-none border-none"
                               required
                           />
                       </div>
 
                       {/* Message Field */}
                       <div className="mb-6">
-                          <label htmlFor="message" className="block  text-[#666] inter-bold mb-2">
+                          <label htmlFor="message" className="block  text-[#1F4959] inter-bold mb-2">
                               Message
                           </label>
                           <textarea
@@ -123,7 +123,7 @@ const ContactForm = () => {
                               rows="10"
                               value={formData.message}
                               onChange={handleChange}
-                              className="w-full px-4 py-4 bg-gray-100 text-gray-700 border rounded-md outline-none border-none overflow-y-auto resize-none"
+                              className="w-full px-4 py-4 bg-gray-100 text-[#1F4959] border rounded-md outline-none border-none overflow-y-auto resize-none"
                               required
                           ></textarea>
                       </div>

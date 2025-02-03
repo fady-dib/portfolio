@@ -117,7 +117,7 @@ function Home() {
             <section id="contact" className="pt-16 pb-20">
                 <div className="mx-auto px-5 container">
                     <p className="inter-black text-[35px] relative pb-4 text-[#1f4958]">CONTACT <span className="underline-part"></span></p>
-                    <p className="text-[#555] pt-4 text-[20px] max-w-[700px] ">Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</p>
+                    <p className="text-[#1F4959] pt-4 text-[20px] max-w-[700px] ">Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</p>
                 </div>
                 <Contact></Contact>
             </section>
