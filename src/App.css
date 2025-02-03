@@ -1,5 +1,5 @@
 .common-bg{
-  background: url('../src/assets/images/background.png') no-repeat center/cover;
+  background: url('../src/assets/images/background.webp') no-repeat center/cover;
 }
 
 .common-bg-2 {
@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../src/assets/images/background.png') no-repeat center/cover;
+  background: url('../src/assets/images/background.webp') no-repeat center/cover;
   opacity: 0.3;
   z-index: 0;
 }
