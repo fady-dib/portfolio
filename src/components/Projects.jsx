@@ -62,6 +62,7 @@ const Projects = ({ projects }) => {
                                                     src={project.image}
                                                     className="max-w-full max-h-full object-contain p-2 transition-all duration-700 ease-in-out hover:scale-110"
                                                     alt={project.title}
+                                                    loading="lazy"
                                                 />
                                             </a>
                                         ) : (
@@ -69,6 +70,7 @@ const Projects = ({ projects }) => {
                                                 src={project.image}
                                                 className="max-w-full max-h-full object-contain p-2"
                                                 alt={project.title}
+                                                loading="lazy"
                                             />
                                         )}
                                     </div>

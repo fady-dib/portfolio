@@ -33,7 +33,7 @@ function Home() {
                 <div className="shadow-md shadow-gray-400 z-1000 bg-[#214655] relative text-white">
                     <header className="flex justify-between items-center py-5 text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
-                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO"></img>
+                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO" loading="lazy"></img>
                             <p className="pl-5 inter-bold">FADY DIB</p>
                         </div>
                         <div className="hidden lg:flex gap-16 text-[16px] ">
@@ -45,10 +45,10 @@ function Home() {
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
                                 { isMenuOpen ? (
-                                    <img src={close_icon} alt="CLOSE MENU" className="h-[35px] w-[35px] transition-transform duration-500 ease-in-out rotate-180" />
+                                    <img src={close_icon} alt="CLOSE MENU" className="h-[35px] w-[35px] transition-transform duration-500 ease-in-out rotate-180" loading="lazy" />
                                 ) 
                                 : 
-                                    (<img src={menu} alt="BURGER MENU" className="h-[35px] w-[35px] transform transition-transform duration-500 ease-in-out rotate-0"></img> )
+                                    (<img src={menu} alt="BURGER MENU" className="h-[35px] w-[35px] transform transition-transform duration-500 ease-in-out rotate-0" loading="lazy"></img> )
                                 } 
                             </button>
                         </div>
@@ -127,7 +127,7 @@ function Home() {
                 rel="noopener noreferrer"
                 className="fixed bottom-3 left-2 bg-[#25D366] p-3 md:p-4 rounded-full shadow-lg hover:bg-[#1EBE5F] transition duration-700 hover:-translate-y-1 z-10"
             >
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-8 w-8 md:h-10 md:w-10" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-8 w-8 md:h-10 md:w-10" loading="lazy" />
             </a>
             <Footer></Footer>
         </>

@@ -28,6 +28,7 @@ const Footer = () => {
                                     src={linkedin}
                                     className="w-[30px] h-[30px]"
                                     alt="Linkedin"
+                                    loading="lazy"
                                 />
                             </a>
                             <a
@@ -39,6 +40,7 @@ const Footer = () => {
                                     src={github}
                                     className="w-[30px] h-[30px]"
                                     alt="Github"
+                                    loading="lazy"
                                 />
                             </a>
                         </div>
