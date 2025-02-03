@@ -33,7 +33,7 @@ function Home() {
                 <div className="shadow-md shadow-gray-400 z-1000 bg-[#214655] relative text-white">
                     <header className="flex justify-between items-center py-5 text-[20px] container mx-auto px-5">
                         <div className="flex items-center">
-                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO" loading="lazy"></img>
+                            <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO" ></img>
                             <p className="pl-5 inter-bold">FADY DIB</p>
                         </div>
                         <div className="hidden lg:flex gap-16 text-[16px] ">
