@@ -111,7 +111,7 @@ const About = ({ portfolio }) => {
     };
 
     return (
-        <div className="pt-20 pb-4 text-white">
+        <div className="pt-12 pb-4 text-white">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center">
                     {portfolio.map((item, index) => (

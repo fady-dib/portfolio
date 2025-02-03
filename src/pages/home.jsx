@@ -93,7 +93,7 @@ function Home() {
                                 <p>Feel free to connect or follow me on LinkedIn and Github. I'm open to <span className="inter-bold">job</span> opportunities where I can contribute, learn, and grow. If you have a role that aligns with my skills and experience, don't hesitate to <span className="inter-bold">reach out.</span></p>
                             </div>
                     <About portfolio={portfolio}></About>
-                    <p className="inter-bold text-[25px] text-[#1f4958] mt-10">My skills</p>
+                    <p className="inter-bold text-[25px] text-[#1f4958] mt-8">My skills</p>
                     <div className="flex flex-wrap gap-4 pt-10 max-w-4xl">
                         {skills.map((skill, index) => (
                             <div
