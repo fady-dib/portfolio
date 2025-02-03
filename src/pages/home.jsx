@@ -45,22 +45,21 @@ function Home() {
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
                                 { isMenuOpen ? (
-                                    <img src={close_icon} alt="CLOSE MENU" className="h-[35px] w-[35px] transition-transform duration-300 ease-in-out rotate-180" />
+                                    <img src={close_icon} alt="CLOSE MENU" className="h-[35px] w-[35px] transition-transform duration-500 ease-in-out rotate-180" />
                                 ) 
                                 : 
-                                    (<img src={menu} alt="BURGER MENU" className="h-[35px] w-[35px] transform transition-transform duration-300 ease-in-out rotate-0"></img> )
+                                    (<img src={menu} alt="BURGER MENU" className="h-[35px] w-[35px] transform transition-transform duration-500 ease-in-out rotate-0"></img> )
                                 } 
                             </button>
                         </div>
                     </header>
-                    {isMenuOpen && (
-                        <div className="absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50 text-[#214959] inter-medium">
-                            <p onClick={() => window.location.reload()} className="cursor-pointer inter-medium">HOME</p>
-                            <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-medium">ABOUT</p>
-                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-medium">PROJECTS</p>
-                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-medium">CONTACT</p>
-                        </div>
-                    )}
+                    <div className={`absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50 text-[#214959] inter-medium 
+                                    transition-all duration-500 ease-in-out transform ${isMenuOpen ? "opacity-100 " : "opacity-0 pointer-events-none"}`}>
+                        <p onClick={() => window.location.reload()} className="cursor-pointer inter-medium">HOME</p>
+                        <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-medium">ABOUT</p>
+                        <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-medium">PROJECTS</p>
+                        <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-medium">CONTACT</p>
+                    </div>
                 </div>
                 <div className="pt-20 pb-24 md:pt-40 md:pb-48 mx-auto container px-5">
                     <div className="max-w-full md:max-w-[590px] lg:max-h-[469px] rounded-[60px] bg-[#2B4A4D] bg-opacity-[62%] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#CDF8C9]">
