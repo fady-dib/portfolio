@@ -3,7 +3,7 @@ import About from "../components/About";
 import Projects from "../components/Projects";
 import {portfolio,skills,projects} from "../utils/data"
 import React, { useState } from 'react';
-import logo from '../assets/images/fady_portfolio_2.png'
+import logo from '../assets/images/fady_portfolio_2.webp'
 import menu from '../assets/images/icons8-hamburger.svg'
 import close_icon from '../assets/images/icons8-close.svg'
 import Contact from "../components/Contact";
