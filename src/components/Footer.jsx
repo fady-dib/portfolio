@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                 </div>
               
-                <p className="text-xs mt-14 text-center border-t border-white py-10">
+                <p className="text-xs mt-14 text-center border-t border-white py-14">
                     &copy; Copyright {current_year}. Made by <span className="font-semibold">FADY DIB</span>
                 </p>
             </div>
