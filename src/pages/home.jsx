@@ -95,16 +95,17 @@ function Home() {
                             </div>
                     <About portfolio={portfolio}></About>
                     <p className="inter-bold text-[25px] text-[#1f4958] mt-10">My skills</p>
-                    <div className="flex flex-wrap gap-4 pt-10  max-w-4xl">
-                            {skills.map((skill, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-[#E0F5FF] border border-[#32819F] text-[#1F4959] text-center py-2 px-4 rounded-lg shadow-md"
-                                >
-                                    {skill}
-                                </div>
-                            ))}
-                        </div>
+                    <div className="flex flex-wrap gap-4 pt-10 max-w-4xl">
+                        {skills.map((skill, index) => (
+                            <div
+                                key={index}
+                                className="bg-[#E0F5FF] border border-[#32819F] text-[#1F4959] text-center py-2 px-4 rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-gradient-to-r hover:from-[#32819F] hover:to-[#1F4959] hover:text-white hover:shadow-lg"
+                            >
+                                {skill}
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </section>
             <section id="projects" className="pt-16 pb-20 common-bg-2">
