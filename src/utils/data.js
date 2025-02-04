@@ -6,7 +6,8 @@ import neo from '../assets/images/neo-4496.svg'
 import mabanee from '../assets/images/mabanee.png';
 import you_sport from '../assets/images/yousport-logo.webp';
 import yellow_door from '../assets/images/yellow_door.png';
-import hibou from '../assets/images/hibou-logo.webp'
+import hibou from '../assets/images/hibou-logo.webp';
+import sigma from '../assets/images/sigma-logo.jpeg';
 
 
 
@@ -34,6 +35,11 @@ export const skills = [
 
 export const projects = [
     {
+        title: "HOMERESA",
+        image: homeresa,
+        url: "https://www.homeresa.com/"
+    },
+    {
         title: "LOTO IRAQ",
         image: loto,
         url: "https://iraqloto.com/en"
@@ -42,11 +48,6 @@ export const projects = [
         title: "MABANEE",
         image: mabanee,
         url: "https://mabanee.com/en"
-    },
-    {
-        title: "HOMERESA",
-        image: homeresa,
-        url: "https://www.homeresa.com/"
     },
     {
         title : "AFRICELL",
@@ -77,6 +78,11 @@ export const projects = [
         title: "HIBOU MOBILE APP",
         image: hibou,
         url: "https://play.google.com/store/apps/details?id=com.tedmob.hibou&hl=en"
+    },
+    {
+        title: "SIGMA CYLINDERS",
+        image: sigma,
+        url: "https://www.sigmacylinders.com/"
     }
 
 ]
