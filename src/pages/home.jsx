@@ -110,7 +110,7 @@ function Home() {
             <section id="projects" className="pt-16 pb-20 common-bg-2">
                 <div className="mx-auto px-5 container">
                     <p className="inter-black text-[35px] relative pb-4 text-white">PROJECTS <span className="underline-part-white"></span></p>
-                    <p className="text-white pt-4 text-[20px] max-w-[700px]">Here you will find some of the projects that I worked on</p>
+                    <p className="text-white pt-4 text-[20px] max-w-[700px]">Here are some projects I contributed to during my employment</p>
                 </div>
                 <Projects projects={projects}></Projects>
             </section>
