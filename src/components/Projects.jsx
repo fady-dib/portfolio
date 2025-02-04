@@ -55,12 +55,12 @@ const Projects = ({ projects }) => {
                                     key={index}
                                     className="project-item w-[280px] sm:w-[350px] h-[320px] flex flex-col bg-white rounded-lg shadow-lg items-center justify-center pt-2 cursor-pointer">
 
-                                    <div className="w-[280px] h-[250px] flex items-center justify-center rounded-md overflow-hidden">
+                                    <div className="w-[280px] h-[250px] flex items-center justify-center rounded-lg overflow-hidden">
                                         {project.url ? (
                                             <a href={project.url} target="_blank" rel="noopener noreferrer">
                                                 <img
                                                     src={project.image}
-                                                    className="max-w-full max-h-full object-contain p-2 transition-all duration-700 ease-in-out hover:scale-110"
+                                                    className="max-w-[250px] max-h-[200px] object-contain rounded-lg transition-all duration-700 ease-in-out hover:scale-110"
                                                     alt={project.title}
                                                     loading="lazy"
                                                 />
@@ -68,7 +68,7 @@ const Projects = ({ projects }) => {
                                         ) : (
                                             <img
                                                 src={project.image}
-                                                className="max-w-full max-h-full object-contain p-2"
+                                                    className="max-w-[250px] max-h-[200px] object-contain rounded-lg transition-all duration-700 ease-in-out hover:scale-110"
                                                 alt={project.title}
                                                 loading="lazy"
                                             />
