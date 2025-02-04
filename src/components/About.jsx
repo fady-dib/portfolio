@@ -98,7 +98,7 @@ const About = ({ portfolio }) => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: line,
-                    start: 'top bottom-=15%',
+                    start: 'top bottom-=-5%',
                     end: 'bottom center',
                     scrub: 1
                 }
