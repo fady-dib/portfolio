@@ -52,7 +52,7 @@ export const projects = [
     {
         title : "AFRICELL",
         image : africell,
-        url: "https://www.africell.com"
+        // url: "https://www.africell.com"
     },
     {
         title: "OLM WEBSITE & MOBILE APP",
