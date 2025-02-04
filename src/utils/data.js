@@ -1,11 +1,13 @@
-import africell from '../assets/images/africell.jpg'
+import africell from '../assets/images/africell.webp'
 import homeresa from '../assets/images/homeresa.png'
-import olm from '../assets/images/olm.jpg'
+import olm from '../assets/images/olm.png'
 import loto from '../assets/images/logo-ball.webp';
 import neo from '../assets/images/neo-4496.svg'
 import mabanee from '../assets/images/mabanee.png';
-import you_sport from '../assets/images/yousport-logo.png';
-import yellow_door from '../assets/images/yellow_door.png'
+import you_sport from '../assets/images/yousport-logo.webp';
+import yellow_door from '../assets/images/yellow_door.png';
+import hibou from '../assets/images/hibou-logo.webp'
+
 
 
 export const portfolio = [
@@ -52,7 +54,7 @@ export const projects = [
         url: "https://www.africell.com/en/home"
     },
     {
-        title: "OLM",
+        title: "OLM WEBSITE & MOBILE APP",
         image: olm,
         url: "https://olm.org.lb/ar"
     },
@@ -71,5 +73,10 @@ export const projects = [
         image: neo,
         url: "https://neo.iq/en"
     },
+    {
+        title: "HIBOU MOBILE APP",
+        image: hibou,
+        url: "https://play.google.com/store/apps/details?id=com.tedmob.hibou&hl=en"
+    }
 
 ]
