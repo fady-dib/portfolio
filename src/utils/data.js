@@ -60,6 +60,11 @@ export const projects = [
         url: "https://olm.org.lb/ar"
     },
     {
+        title: "HIBOU MOBILE APP",
+        image: hibou,
+        url: "https://play.google.com/store/apps/details?id=com.tedmob.hibou&hl=en"
+    },
+    {
         title: "YELLOW DOOR",
         image: yellow_door,
         url: "https://www.yellowdoorenergy.com/"
@@ -73,11 +78,6 @@ export const projects = [
         title: "NEO",
         image: neo,
         url: "https://neo.iq/en"
-    },
-    {
-        title: "HIBOU MOBILE APP",
-        image: hibou,
-        url: "https://play.google.com/store/apps/details?id=com.tedmob.hibou&hl=en"
     },
     {
         title: "SIGMA CYLINDERS",
