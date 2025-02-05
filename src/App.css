@@ -135,6 +135,10 @@
   margin-top: 20px !important;
 }
 
+.slick-dots li {
+  margin : 0 1px  !important
+}
+
 .slick-slide {
   display: flex !important;
   justify-content: center !important;
@@ -170,11 +174,11 @@
 }
 
 .slick-dots li button {
-  width: 15px !important;
-  height: 15px !important;
+  width: 10px !important;
+  height: 10px !important;
   border-radius: 50%;
-  background-color: #D0D0D0 !important;
-  transition: background-color 0.3s ease !important;
+  background-color: #ccc !important;
+  transition: all 0.2s ease !important;
 }
 
 .slick-dots li button::before {
@@ -183,6 +187,8 @@
 
 .slick-dots li.slick-active button {
   background-color: #ffff !important;
+  width: 12px !important;
+  height: 12px !important;
 }
 
 /* .arrows {
