@@ -79,7 +79,9 @@ const ContactForm = () => {
                       </div>
                   )}
                   {error && (
-                      <p className="text-red-500 text-center mb-4">Error happened while submitting the form</p>
+                      <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl shadow-lg text-center max-w-md mx-auto transform scale-95 transition-all duration-500 ease-in-out mb-10 animate-fade-in">
+                          <p className="font-semibold text-lg">Error happened while submitting the form</p>
+                      </div>
                   )}
                   <form onSubmit={handleSubmit}>
                       {/* Name Field */}
