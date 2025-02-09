@@ -53,12 +53,12 @@ function Home() {
                             </button>
                         </div>
                     </header>
-                    <div className={`absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-center gap-4 bg-white py-4 text-[16px] shadow-lg z-50 text-[#214959] inter-medium 
-                                    transition-all duration-500 ease-in-out transform ${isMenuOpen ? "opacity-100 " : "opacity-0 pointer-events-none"}`}>
-                        <p onClick={() => window.location.reload()} className="cursor-pointer inter-medium">HOME</p>
-                        <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-medium">ABOUT</p>
-                        <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-medium">PROJECTS</p>
-                        <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-medium">CONTACT</p>
+                    <div className={`absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-start bg-white text-[16px] shadow-lg z-50 text-[#214959] inter-medium 
+                            transition-all duration-500 ease-in-out transform ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+                        <p onClick={() => window.location.reload()} className="cursor-pointer inter-medium w-full h-[60px] flex items-center pl-6 text-left hover:translate-x-1 transition-all duration-300 border-b border-gray-200 last:border-none">HOME</p>
+                        <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-medium w-full h-[60px] flex items-center pl-6 text-left hover:translate-x-1 transition-all duration-300 border-b border-gray-200 last:border-none">ABOUT</p>
+                        <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-medium w-full h-[60px] flex items-center pl-6 text-left hover:translate-x-1 transition-all duration-300 border-b border-gray-200 last:border-none">PROJECTS</p>
+                        <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-medium w-full h-[60px] flex items-center pl-6 text-left hover:translate-x-1 transition-all duration-300 border-b border-gray-200 last:border-none">CONTACT</p>
                     </div>
                 </div>
                 <div className="pt-20 pb-24 md:pt-40 md:pb-48 mx-auto container px-5">
