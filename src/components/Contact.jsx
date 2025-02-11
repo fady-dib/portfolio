@@ -71,7 +71,7 @@ const ContactForm = () => {
 
   return (
     <>
-        <div className='flex justify-center items-center px-4 pt-16'>
+          <div className='flex justify-center items-center pt-16 container mx-auto px-5'>
               <div className="w-full max-w-3xl bg-white md:p-10 p-5 rounded-lg shadow-lg border border-[#204958]">
                   {isSubmitted && (
                       <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-xl shadow-lg text-center max-w-md mx-auto transform scale-95 transition-all duration-500 ease-in-out mb-10 animate-fade-in">
