@@ -62,7 +62,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="pt-20 pb-24 md:pt-40 md:pb-48 mx-auto container px-5">
-                    <div className="max-w-full md:max-w-[590px] lg:max-h-[469px] rounded-[60px] bg-[#2B4A4D] bg-opacity-[62%] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#CDF8C9]">
+                    <div className="max-w-full md:max-w-[590px] lg:max-h-[469px] rounded-[40px] bg-[#2B4A4D] bg-opacity-[62%] drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-2 border-[#CDF8C9]">
                         <div className="text-white px-6 py-8 md:mx-10 md:py-10 text-center md:text-left">
                             <p className="inter-black text-[28px] md:text-[35px] leading-none">HEY, I'M</p>
                             <p className="inter-black text-[40px] md:text-[60px] leading-none pt-4 md:pt-6">FADY DIB</p>
