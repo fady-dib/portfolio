@@ -138,7 +138,7 @@ const ContactForm = () => {
                             type="submit"
                             disabled={isSubmitting} 
                             style={{ marginLeft: "auto" }}
-                              className="w-full md:w-[200px] py-4 bg-[#1F4959] text-white focus:outline-none duration-700 hover:bg-[#1A3641] hover:inter-bold hover:text-[#CDF8C9] hover:-translate-y-1 inter-medium flex justify-center items-center text-center rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px]"
+                              className="w-full md:w-[200px] py-4 bg-[#1F4959] text-white focus:outline-none duration-700 hover:bg-[#1A3641] hover:font-bold hover:text-[#CDF8C9] hover:-translate-y-1 inter-medium flex justify-center items-center text-center rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px]"
                           > 
                               {isSubmitting ? (
                                   <div className="animate-spin border-2 border-white border-t-transparent rounded-full w-6 h-6"></div>
