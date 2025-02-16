@@ -67,7 +67,7 @@ function Home() {
                             <p className="inter-black text-[28px] md:text-[35px] leading-none">HEY, I'M</p>
                             <p className="inter-black text-[40px] md:text-[60px] leading-none pt-4 md:pt-6">FADY DIB</p>
                             <p className="md:max-w-md text-[16px] md:text-[20px] py-6 md:py-12 ">
-                                A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product.
+                                Passionate Full Stack Developer dedicated to developing and optimizing websites and web applications for maximum impact.
                             </p>
                             <button
                                 className="bg-[#1F4959] duration-700 hover:-translate-y-1 hover:bg-[#1A3641] hover:font-bold hover:text-[#CDF8C9] inter-medium text-white py-4 rounded-[12px] border-2 border-[#CDF8C9] text-[16px] md:text-[20px] w-full max-w-[250px] "

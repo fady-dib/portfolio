@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className='w-4/5 md:w-2/5 '>
                         <h2 className="text-xl inter-bold">FADY DIB</h2>
                         <p className="mt-5 text-sm">
-                            A Result-Oriented Web Developer building and managing Websites and Web Applications that lead to the success of the overall product
+                            Building scalable, high-performing, and user-centric web solutions that drive innovation, and contribute to business success.
                         </p>
                     </div>
                     <div className='mt-10 md:mt-0'>
