@@ -42,7 +42,7 @@ const Projects = ({ projects }) => {
 
     return (
         <div className="projects-container pt-16 mx-auto px-5 container">
-            <Slider {...sliderSettings} className="slider">
+            <Slider {...sliderSettings} className="slider cursor-grab">
                 {groupedProjects.map((group, groupIndex) => (
                     <div key={groupIndex} className="slide-group flex flex-col items-center">
                         <div className={`grid gap-16 
