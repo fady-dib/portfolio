@@ -36,11 +36,11 @@ function Home() {
                             <img src={logo} className="h-[72px] w-[72px] rounded-full object-cover" alt="LOGO" ></img>
                             <p className="pl-5 inter-bold">FADY DIB</p>
                         </div>
-                        <div className="hidden lg:flex gap-16 text-[16px] ">
-                            <p onClick={() => window.location.reload()} className="cursor-pointer relative group hover:text-[#b8e4c3] transition-all duration-500 inter-medium">HOME <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('about')} className="cursor-pointer relative group hover:text-[#b8e4c3] inter-medium" >ABOUT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer relative group hover:text-[#b8e4c3] inter-medium" >PROJECTS <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
-                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer relative group hover:text-[#b8e4c3] inter-medium">CONTACT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                        <div className="hidden lg:flex gap-16 inter-bold">
+                            <p onClick={() => window.location.reload()} className="cursor-pointer relative group hover:text-[#b8e4c3] transition-all duration-500 ">HOME <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('about')} className="cursor-pointer relative group hover:text-[#b8e4c3]" >ABOUT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('projects')} className="cursor-pointer relative group hover:text-[#b8e4c3]" >PROJECTS <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
+                            <p onClick={() => scrollToSection('contact')} className="cursor-pointer relative group hover:text-[#b8e4c3]">CONTACT <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b8e4c3] transition-all duration-500 group-hover:w-full"></span></p>
                         </div>
                         <div className="lg:hidden">
                             <button onClick={toggleMenu} className="focus:outline-none">
@@ -55,10 +55,10 @@ function Home() {
                     </header>
                     <div className={`absolute top-[110px] left-0 right-0 lg:hidden flex flex-col items-start custom:items-center bg-white text-[16px] shadow-lg z-50 text-[#214959]
                             transition-all duration-500 ease-in-out transform ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-                        <p onClick={() => window.location.reload()} className="cursor-pointer inter-medium w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">HOME</p>
-                        <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-medium w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">ABOUT</p>
-                        <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-medium w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">PROJECTS</p>
-                        <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-medium w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300">CONTACT</p>
+                        <p onClick={() => window.location.reload()} className="cursor-pointer inter-bold w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">HOME</p>
+                        <p onClick={() => scrollToSection('about')} className="cursor-pointer inter-bold w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">ABOUT</p>
+                        <p onClick={() => scrollToSection('projects')} className="cursor-pointer inter-bold w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300 border-b border-gray-200 custom:border-none">PROJECTS</p>
+                        <p onClick={() => scrollToSection('contact')} className="cursor-pointer inter-bold w-full pl-6 custom:w-auto custom:pl-0 custom:hover:bg-white h-[60px] flex items-center hover:opacity-55 hover:bg-gray-100 transition-all duration-300">CONTACT</p>
                     </div>
                 </div>
                 <div className="pt-20 pb-24 md:pt-40 md:pb-48 mx-auto container px-5">
