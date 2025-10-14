@@ -36,12 +36,13 @@ const Footer = () => {
                                 className="hover:text-gray-400"
                                 aria-label="GitHub"
                             >
-                                <img
+                                {/* <img
                                     src={github}
                                     className="w-[30px] h-[30px]"
                                     alt="Github"
                                     loading="lazy"
-                                />
+                                /> */}
+                                <img className="w-[30px] h-[30px]" src="https://img.icons8.com/glyph-neue/64/FFFFFF/github.png" alt="Github" />
                             </a>
                         </div>
                     </div>
