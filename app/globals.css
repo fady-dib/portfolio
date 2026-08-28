@@ -65,6 +65,19 @@
     background-color: var(--accent);
     color: var(--bg);
   }
+
+  /* Tailwind v4's preflight sets buttons to cursor: default, matching the
+     browser default rather than v3's pointer. Restore the pointer, and use
+     not-allowed for disabled controls so the submit button reads as
+     unavailable while a message is sending. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
