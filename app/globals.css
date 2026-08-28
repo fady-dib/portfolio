@@ -2,16 +2,22 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Registered so the conic-gradient card ring can be animated. An unregistered
+   custom property is a string to the engine and will not interpolate. */
+@property --spin {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
-  /* Cool paper rather than a tinted grey: reads as documentation, not UI
-     chrome. */
-  --bg: #F1F3F5;
+  --bg: #E8ECEE;
   --surface: #FFFFFF;
-  --border: #DDE1E6;
-  --text: #14181D;
-  --muted: #59626D;
-  --accent: #0E6E86;
-  --accent-soft: #E2EFF3;
+  --border: #CBD4D9;
+  --text: #0D1418;
+  --muted: #4E5C66;
+  --accent: #0E7490;
+  --accent-soft: #D3ECF3;
 
   /* Deliberately not overridden in .dark. Client logos are dark-on-
      transparent artwork and vanish against a dark card. */
@@ -19,15 +25,13 @@
 }
 
 .dark {
-  /* Slate, not near-black. Pure black plus a saturated accent is what reads
-     as gaming; a lifted ground reads as an editor theme. */
-  --bg: #0D1117;
-  --surface: #141A22;
-  --border: #232C36;
-  --text: #DFE5EC;
-  --muted: #8A96A4;
-  --accent: #4FBBD3;
-  --accent-soft: #12303A;
+  --bg: #080E12;
+  --surface: #0F1721;
+  --border: #1E2A36;
+  --text: #E6EFF5;
+  --muted: #8496A6;
+  --accent: #22D3EE;
+  --accent-soft: #0A2C38;
 }
 
 @theme inline {
@@ -41,20 +45,19 @@
   --color-logo-plate: var(--logo-plate);
 
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-mono);
 
   --breakpoint-custom: 551px;
 
-  /* Restrained radius. Large pills everywhere read consumer; a tighter
-     corner reads as a tool. */
-  --radius-card: 0.75rem;
-  --radius-inner: 0.5rem;
+  /* A generous, consistent radius is most of what makes the surfaces read
+     as soft rather than boxy. */
+  --radius-card: 1.5rem;
+  --radius-inner: 1.125rem;
 
-  --text-display: 4rem;
-  --text-display--line-height: 1.04;
-  --text-display--letter-spacing: -0.035em;
-  --text-h2: 2rem;
-  --text-h2--line-height: 1.15;
+  --text-display: 4.5rem;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+  --text-h2: 2.25rem;
+  --text-h2--line-height: 1.1;
   --text-h2--letter-spacing: -0.02em;
 }
 
@@ -87,24 +90,57 @@
 
   :focus-visible {
     outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-/* ---- Motion ----------------------------------------------------------
-   Deliberately quiet. Everything is a short entrance or a state change;
-   nothing loops in the visitor's peripheral vision except the marquee,
-   which carries content rather than decorating. */
+/* ---- Motion ---------------------------------------------------------- */
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-42%, 6%) scale(1.18);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1.1);
+  }
+  50% {
+    transform: translate(-60%, -8%) scale(0.9);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* One grid cell of travel, so the loop is seamless. */
+@keyframes grid-drift {
+  to {
+    background-position: 56px 56px;
   }
 }
 
@@ -114,14 +150,41 @@
   }
 }
 
-@keyframes caret {
-  0%,
-  45% {
-    opacity: 1;
+@keyframes spin-ring {
+  to {
+    --spin: 360deg;
   }
-  50%,
-  95% {
-    opacity: 0;
+}
+
+/* Dashes travel along the path, so the guides read as live instrumentation
+   rather than static decoration. */
+@keyframes schematic-travel {
+  to {
+    stroke-dashoffset: -140;
+  }
+}
+
+@keyframes schematic-blink {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
   }
 }
 
@@ -129,38 +192,110 @@
   /* `backwards` holds the from-state through the delay, so staggered items
      stay hidden until their turn rather than flashing in first. */
   .animate-rise {
-    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   }
 
-  .animate-caret {
-    animation: caret 1.15s steps(1, end) infinite;
+  .animate-drift-a {
+    animation: drift-a 18s ease-in-out infinite;
   }
 
-  /* One hairline rule set, at low contrast and in the neutral border colour
-     rather than the accent. Structure, not decoration. */
-  .rule-grid {
+  .animate-drift-b {
+    animation: drift-b 24s ease-in-out infinite;
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+
+  .text-sweep {
+    background-image: linear-gradient(
+      100deg,
+      var(--accent) 0%,
+      var(--accent) 40%,
+      color-mix(in oklab, var(--accent) 45%, var(--text)) 50%,
+      var(--accent) 60%,
+      var(--accent) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 4.5s ease-in-out 1.2s 2;
+  }
+
+  /* Perspective grid that slides one cell forever and fades out downward. */
+  .ambient-grid {
     background-image:
-      linear-gradient(to right, var(--border) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-    background-size: 72px 72px;
-    opacity: 0.55;
-    mask-image: linear-gradient(to bottom, #000, transparent 76%);
+      linear-gradient(to right, color-mix(in oklab, var(--accent) 26%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--accent) 26%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    animation: grid-drift 9s linear infinite;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 72%);
   }
 
   .marquee-track {
-    animation: marquee 42s linear infinite;
+    animation: marquee 38s linear infinite;
+  }
+
+  .schematic-line {
+    animation: schematic-travel 6s linear infinite;
+  }
+
+  .schematic-marker {
+    animation: schematic-blink 3.2s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  /* Driven by --stage, which HeroStage writes on scroll: the hero contracts
+     from full-bleed into a bordered panel as the first screen scrolls away. */
+  .hero-stage {
+    --stage: 0;
+    transform: scale(calc(1 - var(--stage) * 0.06));
+    border-radius: calc(var(--stage) * 2rem);
+    border: 1px solid color-mix(in oklab, var(--border) calc(var(--stage) * 100%), transparent);
+    box-shadow: 0 40px 80px -40px
+      color-mix(in oklab, var(--accent) calc(var(--stage) * 22%), transparent);
+    transition: box-shadow 0.4s ease;
+    will-change: transform;
   }
 
   .marquee-mask {
-    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 
-  /* Driven by --stage, which HeroStage writes on scroll. Kept subtle: a
-     hairline and a small radius resolve in, with no scaling. */
-  .hero-stage {
-    --stage: 0;
-    border-radius: calc(var(--stage) * 0.75rem);
-    border: 1px solid color-mix(in oklab, var(--border) calc(var(--stage) * 100%), transparent);
+  /* Conic ring drawn only in the 1px gap between two masks, so it reads as a
+     travelling border rather than a glow behind the card. */
+  .ring-spin::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--spin),
+      transparent 0deg,
+      var(--accent) 70deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .group:hover .ring-spin::before,
+  .group:focus-visible .ring-spin::before {
+    opacity: 1;
+    animation: spin-ring 2.8s linear infinite;
   }
 }
 
@@ -177,6 +312,14 @@
     transition-duration: 0.01ms !important;
   }
 
+  /* The sweep paints text transparent while running; with animation
+     effectively disabled it would never resolve. */
+  .text-sweep {
+    background-image: none;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+  }
+
   /* A marquee with no animation is a truncated list, so let it wrap. */
   .marquee-track {
     animation: none;
@@ -187,8 +330,11 @@
     mask-image: none;
   }
 
+  /* No scroll-driven transform when motion is reduced. */
   .hero-stage {
+    transform: none;
     border-radius: 0;
     border-color: transparent;
+    box-shadow: none;
   }
 }

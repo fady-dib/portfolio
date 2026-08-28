@@ -10,14 +10,14 @@ export function Footer() {
     <footer className="border-t border-border py-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <p className="font-mono text-sm tracking-tight">{SITE.name.toLowerCase().replace(' ', '-')}</p>
+          <p className="text-sm font-bold tracking-[0.18em] uppercase">{SITE.name}</p>
           <p className="mt-4 text-sm leading-relaxed text-muted">
             Building scalable, high-performing, user-centric web solutions.
           </p>
         </div>
 
         <div>
-          <p className="mb-4 font-mono text-[11px] tracking-[0.2em] text-muted uppercase">Connect</p>
+          <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-muted uppercase">Connect</p>
           {/* Inline SVG rather than remote icons: the old footer pulled its
               GitHub glyph from icons8's CDN on every page load. */}
           <div className="flex gap-3">
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
       </div>
 
-      <p className="mx-auto mt-14 max-w-6xl border-t border-border px-5 pt-8 text-center font-mono text-[11px] text-muted">
+      <p className="mx-auto mt-14 max-w-6xl border-t border-border px-5 pt-8 text-center text-xs text-muted">
         &copy; {year} {SITE.name}
       </p>
     </footer>
