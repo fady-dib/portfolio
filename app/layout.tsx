@@ -26,19 +26,19 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
   alternates: { canonical: '/' },
+  // The image itself comes from app/opengraph-image.tsx, which Next
+  // detects and wires up with correct dimensions for both cards.
   openGraph: {
     type: 'website',
     url: SITE.url,
     siteName: SITE.name,
     title: `${SITE.name} | ${SITE.role}`,
     description: DESCRIPTION,
-    images: [{ url: '/fady_portfolio_2.webp', width: 1200, height: 630, alt: SITE.name }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE.name} | ${SITE.role}`,
     description: DESCRIPTION,
-    images: ['/fady_portfolio_2.webp'],
   },
   robots: { index: true, follow: true },
   verification: { google: 'Cj0HXgiwEoZFLgeqWW_ue-yly-VWotez1U2Hl5sG8Mo' },
