@@ -108,39 +108,12 @@
   }
 }
 
-@keyframes drift-a {
-  0%,
-  100% {
-    transform: translate(-50%, 0) scale(1);
-  }
-  50% {
-    transform: translate(-42%, 6%) scale(1.18);
-  }
-}
-
-@keyframes drift-b {
-  0%,
-  100% {
-    transform: translate(-50%, 0) scale(1.1);
-  }
-  50% {
-    transform: translate(-60%, -8%) scale(0.9);
-  }
-}
-
 @keyframes shimmer {
   from {
     background-position: 200% 0;
   }
   to {
     background-position: -200% 0;
-  }
-}
-
-/* One grid cell of travel, so the loop is seamless. */
-@keyframes grid-drift {
-  to {
-    background-position: 56px 56px;
   }
 }
 
@@ -156,55 +129,11 @@
   }
 }
 
-/* Dashes travel along the path, so the guides read as live instrumentation
-   rather than static decoration. */
-@keyframes schematic-travel {
-  to {
-    stroke-dashoffset: -140;
-  }
-}
-
-@keyframes schematic-blink {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.2;
-    transform: scale(0.5);
-  }
-}
-
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.45;
-    transform: scale(0.82);
-  }
-}
-
 @layer utilities {
   /* `backwards` holds the from-state through the delay, so staggered items
      stay hidden until their turn rather than flashing in first. */
   .animate-rise {
     animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-  }
-
-  .animate-drift-a {
-    animation: drift-a 18s ease-in-out infinite;
-  }
-
-  .animate-drift-b {
-    animation: drift-b 24s ease-in-out infinite;
-  }
-
-  .animate-pulse-dot {
-    animation: pulse-dot 2.4s ease-in-out infinite;
   }
 
   .text-sweep {
@@ -223,40 +152,28 @@
     animation: shimmer 4.5s ease-in-out 1.2s 2;
   }
 
-  /* Perspective grid that slides one cell forever and fades out downward. */
-  .ambient-grid {
-    background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--accent) 26%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--accent) 26%, transparent) 1px, transparent 1px);
-    background-size: 56px 56px;
-    animation: grid-drift 9s linear infinite;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 10%, transparent 72%);
-  }
-
   .marquee-track {
     animation: marquee 38s linear infinite;
   }
 
-  .schematic-line {
-    animation: schematic-travel 6s linear infinite;
-  }
-
-  .schematic-marker {
-    animation: schematic-blink 3.2s ease-in-out infinite;
-    transform-origin: center;
-    transform-box: fill-box;
-  }
-
-  /* Driven by --stage, which HeroStage writes on scroll: the hero contracts
-     from full-bleed into a bordered panel as the first screen scrolls away. */
+  /* Driven by --stage, which HeroStage writes on scroll: the hero visibly
+     recedes — shrinking, lifting, and rounding into a panel — as the first
+     screen scrolls away. */
   .hero-stage {
     --stage: 0;
-    transform: scale(calc(1 - var(--stage) * 0.06));
-    border-radius: calc(var(--stage) * 2rem);
+    transform: scale(calc(1 - var(--stage) * 0.14)) translateY(calc(var(--stage) * -2.5rem));
+    border-radius: calc(var(--stage) * 2.5rem);
     border: 1px solid color-mix(in oklab, var(--border) calc(var(--stage) * 100%), transparent);
-    box-shadow: 0 40px 80px -40px
-      color-mix(in oklab, var(--accent) calc(var(--stage) * 22%), transparent);
+    box-shadow: 0 50px 90px -40px
+      color-mix(in oklab, var(--accent) calc(var(--stage) * 30%), transparent);
     transition: box-shadow 0.4s ease;
+    will-change: transform;
+  }
+
+  /* Parallax: the light field drifts down as the frame lifts, so the two
+     layers separate instead of moving as one block. */
+  .hero-parallax {
+    transform: translateY(calc(var(--stage, 0) * 4rem)) scale(calc(1 + var(--stage, 0) * 0.08));
     will-change: transform;
   }
 
@@ -331,7 +248,8 @@
   }
 
   /* No scroll-driven transform when motion is reduced. */
-  .hero-stage {
+  .hero-stage,
+  .hero-parallax {
     transform: none;
     border-radius: 0;
     border-color: transparent;

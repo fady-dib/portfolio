@@ -1,6 +1,5 @@
 import { HeroAmbient } from '@/components/hero-ambient'
 import { HeroStage } from '@/components/hero-stage'
-import { Schematic } from '@/components/schematic'
 import { SITE } from '@/lib/content'
 
 export function Hero() {
@@ -8,7 +7,6 @@ export function Hero() {
     <section id="home">
       <HeroStage>
         <HeroAmbient />
-        <Schematic />
 
         <div className="relative mx-auto max-w-6xl px-5 py-32 md:py-44">
           <h1
