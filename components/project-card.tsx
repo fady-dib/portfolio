@@ -45,13 +45,29 @@ export function ProjectCard({ project }: { project: Project }) {
   const inner = (
     <div
       ref={cardRef}
-      className="ring-spin relative flex h-full flex-col rounded-card border border-border bg-surface p-5 shadow-sm transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform group-hover:border-accent/50 group-hover:shadow-2xl group-hover:shadow-accent/10"
+      className="ring-spin relative flex h-full flex-col overflow-hidden rounded-card border border-glass-edge bg-glass p-5 shadow-lg shadow-black/5 backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform group-hover:border-accent/50 group-hover:shadow-2xl group-hover:shadow-accent/10"
     >
-      <div className="flex h-40 items-center justify-center rounded-inner bg-logo-plate p-6">
+      {/* Specular highlight along the top edge — the detail that makes a
+          translucent panel read as glass rather than as low opacity. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+      />
+
+      {/* Frosted plate. Kept substantially light in both themes because the
+          client logos are dark artwork on transparent backgrounds and would
+          otherwise disappear. */}
+      <div className="relative flex h-40 items-center justify-center overflow-hidden rounded-inner bg-logo-plate p-6 backdrop-blur-2xl backdrop-saturate-150 ring-1 ring-logo-plate-edge ring-inset">
+        {/* Diagonal sheen: what separates frosted glass from a flat panel at
+            reduced opacity. */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/55 via-white/10 to-transparent"
+        />
         <Image
           src={project.image}
           alt={`${project.title} logo`}
-          className="max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+          className="relative max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>

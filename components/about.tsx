@@ -31,7 +31,11 @@ export function About() {
         <dl className="mt-16 grid gap-5 md:grid-cols-3">
           {stats.map((stat, index) => (
             <Reveal key={stat.title} delay={index * 100}>
-              <div className="group relative h-full overflow-hidden rounded-card border border-border bg-surface p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
+              <div className="group relative h-full overflow-hidden rounded-card border border-glass-edge bg-glass p-7 shadow-lg shadow-black/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                />
                 <span
                   aria-hidden="true"
                   className="absolute -top-16 -right-16 size-40 rounded-full bg-accent/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
