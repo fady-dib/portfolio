@@ -3,7 +3,7 @@ import { SectionHeading } from '@/components/section-heading'
 import { projects, type Project } from '@/lib/content'
 
 const cardClass =
-  'group flex h-full w-[17rem] shrink-0 snap-start flex-col rounded-2xl border border-border bg-surface p-5 transition-colors duration-300 hover:border-accent md:w-auto md:shrink'
+  'group flex h-full w-[17rem] shrink-0 snap-start flex-col rounded-2xl border border-border bg-surface p-5 shadow-sm transition-all duration-400 ease-out hover:-translate-y-1.5 hover:border-accent hover:shadow-xl hover:shadow-accent/10 md:w-auto md:shrink'
 
 function CardBody({ project }: { project: Project }) {
   return (

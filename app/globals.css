@@ -3,13 +3,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #FAF9F7;
+  /* The ground is a warm sand rather than near-white, so white surfaces
+     read as raised cards. The previous #FAF9F7 sat 1.02:1 against #FFFFFF,
+     which made every card edge disappear. */
+  --bg: #EDE8DF;
   --surface: #FFFFFF;
-  --border: #E6E2DC;
-  --text: #141210;
-  --muted: #6B645C;
-  --accent: #B45309;
-  --accent-soft: #FEF3C7;
+  --border: #D6CCBB;
+  --text: #17120D;
+  --muted: #5A5245;
+  --accent: #A4430D;
+  --accent-soft: #F6E2C9;
 
   /* Deliberately not overridden in .dark. Client logos are dark-on-
      transparent artwork, so they need a light plate in both themes or
@@ -80,6 +83,83 @@
   }
 }
 
+/* ---- Motion ---------------------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Two blobs drifting on different periods, so the hero light never
+   repeats in an obvious loop. */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-42%, 6%) scale(1.18);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1.1);
+  }
+  50% {
+    transform: translate(-60%, -8%) scale(0.9);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@layer utilities {
+  /* `backwards` holds the from-state during the delay, so staggered items
+     stay hidden until their turn instead of flashing in first. */
+  .animate-rise {
+    animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .animate-drift-a {
+    animation: drift-a 18s ease-in-out infinite;
+  }
+
+  .animate-drift-b {
+    animation: drift-b 24s ease-in-out infinite;
+  }
+
+  /* Accent sweeps across the headline once, then rests on the base colour. */
+  .text-sweep {
+    background-image: linear-gradient(
+      100deg,
+      var(--accent) 0%,
+      var(--accent) 40%,
+      color-mix(in oklab, var(--accent) 45%, var(--text)) 50%,
+      var(--accent) 60%,
+      var(--accent) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 4.5s ease-in-out 1.2s 2;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -89,6 +169,15 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* The sweep paints text transparent while it runs; with animation
+     effectively disabled it would never resolve, so opt out entirely. */
+  .text-sweep {
+    background-image: none;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
   }
 }

@@ -7,7 +7,13 @@ import portrait from '@/assets/fady_portfolio_2.webp'
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/60">
+      {/* The blur lives on this child, not the header. backdrop-filter makes
+          an element a containing block for fixed descendants, which would
+          trap the mobile menu overlay inside the header instead of letting
+          it cover the viewport. */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-bg/80 backdrop-blur-md" />
+
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <a href="#home" className="flex items-center gap-3">
           {/* Decorative: the name sits right beside it. */}
