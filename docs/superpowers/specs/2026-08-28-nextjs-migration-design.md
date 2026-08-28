@@ -145,9 +145,15 @@ Two components are rewritten rather than ported. Both are load-bearing decisions
 
 The current odometer injects ten `<span>` elements per digit with `insertAdjacentHTML`, drives them with inline `transform` styles, tracks which sections have animated in a `Set` ref, listens on `scroll`, and depends on `#number` / `.n-scroll` rules in `App.css`. SplitType additionally mutates DOM that React owns. It works, but it is imperative DOM manipulation underneath a framework that assumes it owns the tree, and the missing dependency array makes it re-run continuously.
 
-Replacement: a `CountUp` client component using `IntersectionObserver` to trigger once and `requestAnimationFrame` to interpolate, honouring `prefers-reduced-motion` by rendering the final value immediately. **Drops the `split-type` dependency.**
+Replacement: a `CountUp` client component using `IntersectionObserver` to trigger once and `requestAnimationFrame` to interpolate, honouring `prefers-reduced-motion` by rendering the final value immediately.
 
-GSAP is retained for the line-reveal effect on the about text, registered once in a `useEffect` with a proper dependency array. It stays because the effect is worth keeping and GSAP is the right tool for it.
+### Scroll reveal (`split-type` + GSAP → `useInView`)
+
+The about text currently animates line by line: SplitType splits the paragraph into `.line` elements, a `.line-mask` div is injected into each, and GSAP ScrollTrigger animates the masks to `width: 0`.
+
+Both libraries exist to serve that one effect, and SplitType's DOM mutation is what makes it fragile — it rewrites text nodes React owns. Replacing the per-line reveal with a per-element fade-and-rise gives a comparable result with no library at all: one `useInView` hook wrapping `IntersectionObserver`, and a CSS transition.
+
+The same hook drives `CountUp`, so the observer logic is written and tested once. **Drops `split-type`, `gsap`, and `@gsap/react`.**
 
 ### Projects carousel (`Projects.jsx`)
 
@@ -159,7 +165,9 @@ Replacement: a CSS scroll-snap row (`overflow-x: auto`, `scroll-snap-type: x man
 
 Full list, including the dependencies dropped by the two rewrites above.
 
-**Dependencies:** `@reduxjs/toolkit`, `react-redux`, `redux` (empty store, `Provider` commented out), `react-router-dom` (one route), `react-scripts`, `web-vitals`, `split-type` (replaced by `CountUp`), `react-slick` + `slick-carousel` (replaced by scroll-snap), `@tailwindcss/aspect-ratio` (native in v4), `emailjs-com` (server now calls the REST API directly), `react-google-recaptcha-v3` (token requested via the `grecaptcha` script at submit time), and the four CRA testing-library packages, superseded by Vitest.
+**Dependencies:** `@reduxjs/toolkit`, `react-redux`, `redux` (empty store, `Provider` commented out), `react-router-dom` (one route), `react-scripts`, `web-vitals`, `split-type` + `gsap` + `@gsap/react` (replaced by `useInView`), `react-slick` + `slick-carousel` (replaced by scroll-snap), `@tailwindcss/aspect-ratio` (native in v4), `emailjs-com` (server now calls the REST API directly), `react-google-recaptcha-v3` (token requested via the `grecaptcha` script at submit time), and the CRA testing-library packages, superseded by Vitest.
+
+Every runtime dependency in the current `package.json` is removed. The new one runs on `next`, `react`, `react-dom`, and `next-themes`.
 
 **Files:** `reportWebVitals.js`, `setupTests.js`, `App.test.js`, `App.js`, `pages/home.jsx`, `src/logo.svg`, `src/assets/images/github-ico.png`, `tailwind.config.js`, `public/index.html`, `public/sitemap.xml`, `public/robots.txt`. `App.css` and `index.css` are folded into `app/globals.css`, minus the odometer and `.inter-*` rules, which no longer have consumers.
 
@@ -222,6 +230,6 @@ Also verified before calling the work done: Lighthouse SEO and accessibility on 
 |---|---|
 | EmailJS private key unavailable or API calls disabled on the account | Form is built last; if blocked, ship with client-side EmailJS and a TODO rather than block the migration |
 | Vercel preset pinned to CRA breaks the first deploy | Checked before pushing, noted above |
-| GSAP + React 19 Strict Mode double-invoking effects | Register the plugin once at module scope; clean up ScrollTriggers on unmount |
+| React 19 Strict Mode double-invoking effects | `useInView` disconnects its observer in the effect cleanup and latches on first intersection, so a double invoke is idempotent |
 | Theme flash on first paint | `next-themes` injects a pre-hydration script; `suppressHydrationWarning` on `<html>` |
 | Redesign lands badly | Preview URL exists before anything reaches production |
