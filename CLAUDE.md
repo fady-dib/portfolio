@@ -19,7 +19,9 @@ Next.js 16 App Router, React 19, TypeScript, Tailwind v4. Deployed to Vercel fro
 
 **One statically generated page.** `app/page.tsx` composes the sections; there are no other routes. Navigation is real `<a href="#about">` anchors into four `<section>` landmarks (`#home`, `#about`, `#projects`, `#contact`), with smooth scrolling from CSS. Splitting into separate routes was considered and rejected — the projects are client logos linking to external sites, so per-project pages would be thin.
 
-**Server Components by default.** Only four components are clients: `theme-toggle`, `mobile-nav`, `contact-form`, and anything using `useInView` (`count-up`, `reveal`). This is load-bearing: the entire point of the migration was getting content into the served HTML, and a `"use client"` directive placed on a section component pulls its text back out. If you add one, re-run the verification below.
+**Server Components by default.** The clients are `theme-toggle`, `mobile-nav`, `contact-form`, `section-heading`, and the `useInView` consumers (`count-up`, `reveal`).
+
+`"use client"` does **not** remove content from the served HTML — client components are still server-rendered on the initial request, and this was verified by curling the built output after `section-heading` became a client component. What the directive costs is JavaScript bundle size and hydration work. Content only disappears from the HTML if you use `ssr: false` on a dynamic import, or render it exclusively inside an effect. Prefer server components for bundle size, not because the markup would otherwise go missing.
 
 **Content lives in `lib/content.ts`** as typed exports (`SITE`, `stats`, `skills`, `projects`). Project images are static imports so `next/image` gets intrinsic dimensions at build time. Adding a project means adding an import there — components never define content.
 
