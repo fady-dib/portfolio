@@ -3,12 +3,12 @@ import { skills } from '@/lib/content'
 // Two identical passes: the track scrolls exactly one pass width, so the
 // wrap-around is invisible.
 const chip =
-  'shrink-0 rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted transition-colors duration-300 hover:border-accent hover:text-accent'
+  'shrink-0 rounded-inner border border-border bg-surface px-3 py-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:border-accent hover:text-accent'
 
 export function Skills() {
   return (
     <div className="mt-20">
-      <h3 className="mb-6 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
+      <h3 className="mb-5 font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
         Tools I work with
       </h3>
 

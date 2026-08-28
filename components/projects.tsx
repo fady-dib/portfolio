@@ -12,9 +12,9 @@ export function Projects() {
       {/* Horizontal scroll-snap below md, a plain grid above. No resize
           listener, no manual slide chunking. */}
       <ul className="mx-auto flex max-w-6xl snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:grid md:grid-cols-3 md:overflow-visible">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <li key={project.title} className="flex md:block">
-            <ProjectCard project={project} />
+            <ProjectCard project={project} index={index} />
           </li>
         ))}
       </ul>

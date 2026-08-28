@@ -31,16 +31,13 @@ export function About() {
         <dl className="mt-16 grid gap-5 md:grid-cols-3">
           {stats.map((stat, index) => (
             <Reveal key={stat.title} delay={index * 100}>
-              <div className="group relative h-full overflow-hidden rounded-card border border-border bg-surface p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/10">
-                <span
-                  aria-hidden="true"
-                  className="absolute -top-16 -right-16 size-40 rounded-full bg-accent/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                />
-                <dd className="relative text-5xl font-black tracking-tight text-accent">
-                  <CountUp value={stat.number} />+
+              <div className="h-full rounded-card border border-border bg-surface p-6 transition-colors duration-200 hover:border-accent/60">
+                <dd className="font-mono text-4xl font-medium tracking-tight tabular-nums">
+                  <CountUp value={stat.number} />
+                  <span className="text-accent">+</span>
                 </dd>
-                <dt className="relative mt-3 font-semibold">{stat.title}</dt>
-                <p className="relative mt-3 text-sm leading-relaxed text-muted">{stat.text}</p>
+                <dt className="mt-3 text-sm font-medium">{stat.title}</dt>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{stat.text}</p>
               </div>
             </Reveal>
           ))}

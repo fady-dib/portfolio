@@ -6,23 +6,15 @@ export function SectionHeading({ eyebrow, label }: { eyebrow: string; label: str
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <div ref={ref} className="mb-14">
-      <div className="mb-3 flex items-center gap-3">
-        {/* Rule draws itself out from the eyebrow when the section arrives. */}
-        <span
-          aria-hidden="true"
-          className={`h-px bg-accent transition-all duration-700 ease-out ${
-            inView ? 'w-10 opacity-100' : 'w-0 opacity-0'
-          }`}
-        />
-        <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">{eyebrow}</p>
-      </div>
+    <div ref={ref} className="mb-12">
+      <p className="mb-3 font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
+        <span className="text-accent">/</span> {eyebrow}
+      </p>
 
       <h2
-        className={`text-4xl font-black tracking-tight transition-all duration-700 ease-out md:text-h2 ${
-          inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+        className={`text-3xl font-semibold tracking-tight transition-all duration-500 ease-out md:text-h2 ${
+          inView ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
         }`}
-        style={{ transitionDelay: inView ? '120ms' : '0ms' }}
       >
         {label}
       </h2>
