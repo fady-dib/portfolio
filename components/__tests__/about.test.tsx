@@ -21,10 +21,18 @@ describe('About', () => {
     }
   })
 
-  it('renders every skill', () => {
+  it('renders every skill exactly once for assistive tech', () => {
     render(<About />)
     for (const skill of skills) {
-      expect(screen.getByText(skill)).toBeInTheDocument()
+      // The marquee renders a second pass so the loop wraps seamlessly; that
+      // copy is aria-hidden, so only one of each should be announced.
+      const matches = screen.getAllByText(skill)
+      expect(matches).toHaveLength(2)
+
+      const announced = matches.filter(
+        (el) => el.closest('[aria-hidden="true"]') === null,
+      )
+      expect(announced).toHaveLength(1)
     }
   })
 
