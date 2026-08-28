@@ -10,6 +10,11 @@
   --muted: #6B645C;
   --accent: #B45309;
   --accent-soft: #FEF3C7;
+
+  /* Deliberately not overridden in .dark. Client logos are dark-on-
+     transparent artwork, so they need a light plate in both themes or
+     they vanish against a dark card. */
+  --logo-plate: #FFFFFF;
 }
 
 .dark {
@@ -30,6 +35,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-logo-plate: var(--logo-plate);
 
   --font-sans: var(--font-inter);
 

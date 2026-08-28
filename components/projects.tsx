@@ -8,7 +8,9 @@ const cardClass =
 function CardBody({ project }: { project: Project }) {
   return (
     <>
-      <div className="flex h-40 items-center justify-center rounded-xl bg-bg p-6">
+      {/* Light plate in both themes: several client logos are dark artwork
+          on a transparent background and disappear on a dark card. */}
+      <div className="flex h-40 items-center justify-center rounded-xl bg-logo-plate p-6">
         <Image
           src={project.image}
           alt={`${project.title} logo`}
