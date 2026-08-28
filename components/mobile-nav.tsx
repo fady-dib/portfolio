@@ -71,9 +71,12 @@ export function MobileNav() {
           aria-label="Mobile"
           className="relative flex h-full flex-col justify-center px-8"
         >
+          {/* No overflow-hidden on the rows: the arrow slides right on hover
+              and was being clipped at the row edge. The entrance is carried by
+              opacity and translate, so nothing needs masking. */}
           <ul className="flex flex-col gap-2">
             {NAV_LINKS.map((link, index) => (
-              <li key={link.href} className="overflow-hidden">
+              <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}

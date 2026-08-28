@@ -5,9 +5,9 @@ import { useEffect, useRef } from 'react'
 /** Each orb drifts on its own two sine paths, so the field never visibly loops. */
 const ORBS = [
   { hue: 0, radius: 0.58, x: 0.34, y: 0.2, ax: 0.1, ay: 0.08, sx: 0.00007, sy: 0.00011, pull: 0.55 },
-  { hue: -18, radius: 0.48, x: 0.72, y: 0.32, ax: 0.13, ay: 0.07, sx: 0.00009, sy: 0.00006, pull: 0.35 },
-  { hue: -34, radius: 0.42, x: 0.56, y: 0.6, ax: 0.09, ay: 0.11, sx: 0.00005, sy: 0.00013, pull: 0.7 },
-  { hue: -52, radius: 0.34, x: 0.86, y: 0.66, ax: 0.11, ay: 0.09, sx: 0.00012, sy: 0.00008, pull: 0.25 },
+  { hue: 16, radius: 0.48, x: 0.72, y: 0.32, ax: 0.13, ay: 0.07, sx: 0.00009, sy: 0.00006, pull: 0.35 },
+  { hue: 30, radius: 0.42, x: 0.56, y: 0.6, ax: 0.09, ay: 0.11, sx: 0.00005, sy: 0.00013, pull: 0.7 },
+  { hue: 46, radius: 0.34, x: 0.86, y: 0.66, ax: 0.11, ay: 0.09, sx: 0.00012, sy: 0.00008, pull: 0.25 },
 ]
 
 // Rendered small and stretched back up. The field is pure soft gradient, so
