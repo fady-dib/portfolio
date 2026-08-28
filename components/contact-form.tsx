@@ -20,13 +20,48 @@ const inputClass =
 
 function SubmitButton() {
   const { pending } = useFormStatus()
+
   return (
     <button
       type="submit"
       disabled={pending}
-      className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-bg transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60"
+      className="group relative isolate overflow-hidden rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-bg shadow-lg shadow-accent/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-accent/40 active:translate-y-0 active:scale-[0.97] disabled:translate-y-0 disabled:opacity-70 disabled:shadow-none"
     >
-      {pending ? 'Sending…' : 'Send message'}
+      {/* Light sweeps across once per hover. -z-10 keeps it under the label
+          without needing a wrapper element for the text. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+      />
+
+      {/* A ring that expands and fades on press, so the click has a physical
+          response rather than only a colour change. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 rounded-full ring-2 ring-accent/50 opacity-0 transition-all duration-500 group-active:scale-125 group-active:opacity-100"
+      />
+
+      <span className="flex items-center gap-2">
+        {pending ? (
+          <>
+            <span
+              aria-hidden="true"
+              className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+            />
+            Sending…
+          </>
+        ) : (
+          <>
+            Send message
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+            >
+              &#8594;
+            </span>
+          </>
+        )}
+      </span>
     </button>
   )
 }

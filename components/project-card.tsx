@@ -54,20 +54,15 @@ export function ProjectCard({ project }: { project: Project }) {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
       />
 
-      {/* Frosted plate. Kept substantially light in both themes because the
-          client logos are dark artwork on transparent backgrounds and would
-          otherwise disappear. */}
-      <div className="relative flex h-40 items-center justify-center overflow-hidden rounded-inner bg-logo-plate p-6 backdrop-blur-2xl backdrop-saturate-150 ring-1 ring-logo-plate-edge ring-inset">
-        {/* Diagonal sheen: what separates frosted glass from a flat panel at
-            reduced opacity. */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/55 via-white/10 to-transparent"
-        />
+      {/* No plate: the card glass shows straight through, so the logos sit on
+          whatever is behind the card. Left in their original brand colours —
+          several of these files are opaque tiles rather than transparent
+          artwork, so any global filter turns them into flat rectangles. */}
+      <div className="relative flex h-40 items-center justify-center p-6">
         <Image
           src={project.image}
           alt={`${project.title} logo`}
-          className="relative max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+          className="max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>

@@ -19,13 +19,8 @@
   --accent: #0E7490;
   --accent-soft: #D3ECF3;
 
-  /* Client logos are dark-on-transparent artwork, so they need a light
-     plate in both themes or they vanish. Dark mode gets a dimmer, cooler
-     one — pure white punches a hole in a dark card. */
-  --logo-plate: rgb(255 255 255 / 0.58);
-  --logo-plate-edge: rgb(255 255 255 / 0.85);
-  --glass: rgb(255 255 255 / 0.55);
-  --glass-edge: rgb(255 255 255 / 0.75);
+  --glass: rgb(255 255 255 / 0.32);
+  --glass-edge: rgb(255 255 255 / 0.7);
 }
 
 .dark {
@@ -37,12 +32,8 @@
   --accent: #22D3EE;
   --accent-soft: #0A2C38;
 
-  /* Still substantially light: the client logos are dark artwork, so a
-     mostly transparent plate would hide them again. */
-  --logo-plate: rgb(226 235 242 / 0.72);
-  --logo-plate-edge: rgb(255 255 255 / 0.3);
-  --glass: rgb(23 33 43 / 0.55);
-  --glass-edge: rgb(255 255 255 / 0.09);
+  --glass: rgb(255 255 255 / 0.045);
+  --glass-edge: rgb(255 255 255 / 0.1);
 }
 
 @theme inline {
@@ -53,8 +44,6 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --color-logo-plate: var(--logo-plate);
-  --color-logo-plate-edge: var(--logo-plate-edge);
   --color-glass: var(--glass);
   --color-glass-edge: var(--glass-edge);
 
