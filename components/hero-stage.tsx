@@ -19,12 +19,6 @@ export function HeroStage({ children }: { children: React.ReactNode }) {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    // Mirrors the stylesheet, where the recede is md-and-up. Writing the
-    // property below that width would cost a style recalculation on every
-    // scroll frame for a value no rule reads, so bind the listeners to the
-    // same query rather than leaving them running.
-    const desktop = window.matchMedia('(min-width: 768px)')
-
     let frame = 0
 
     const apply = () => {
@@ -39,6 +33,30 @@ export function HeroStage({ children }: { children: React.ReactNode }) {
     const schedule = () => {
       if (!frame) frame = requestAnimationFrame(apply)
     }
+
+    schedule()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+
+    return () => {
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      cancelAnimationFrame(frame)
+    }
+
+    /* ------------------------------------------------------------------
+       Kept for later: the recede restricted to desktop, to pair with the
+       commented block of the same name in app/globals.css. See there for why
+       — in short, scaling this element on a phone can get its compositing
+       layer evicted, and the hero text stops painting until a repaint.
+
+       Replace the four statements above with this, and uncomment the CSS.
+
+    // Mirrors the stylesheet, where the recede is md-and-up. Writing the
+    // property below that width would cost a style recalculation on every
+    // scroll frame for a value no rule reads, so bind the listeners to the
+    // same query rather than leaving them running.
+    const desktop = window.matchMedia('(min-width: 768px)')
 
     const bind = () => {
       window.removeEventListener('scroll', schedule)
@@ -67,6 +85,7 @@ export function HeroStage({ children }: { children: React.ReactNode }) {
       window.removeEventListener('resize', schedule)
       cancelAnimationFrame(frame)
     }
+       ------------------------------------------------------------------ */
   }, [])
 
   return (

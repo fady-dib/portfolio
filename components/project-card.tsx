@@ -45,12 +45,14 @@ export function ProjectCard({ project }: { project: Project }) {
   const inner = (
     <div
       ref={cardRef}
-      // No will-change here. The transform it would hint at only ever runs on
-      // hover, which phones do not have, so it bought nothing there while
-      // permanently promoting nineteen backdrop-blurred cards to their own
-      // compositing layers — the memory pressure that was pushing the hero's
-      // layer out.
-      className="ring-spin relative flex h-full flex-col overflow-hidden rounded-card border border-glass-edge bg-glass p-5 shadow-card backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-500 ease-out group-hover:border-accent/50 group-hover:shadow-card-hover"
+      // Kept for later: dropping `will-change-transform` from the list below.
+      // The transform it hints at only ever runs on hover, which phones do not
+      // have, so on mobile it buys nothing while permanently promoting all
+      // nineteen backdrop-blurred cards to their own compositing layers. That
+      // is the memory pressure behind the hero text disappearing after a lot
+      // of scrolling — see the commented block in app/globals.css. Removing it
+      // changes nothing you can see on any device.
+      className="ring-spin relative flex h-full flex-col overflow-hidden rounded-card border border-glass-edge bg-glass p-5 shadow-card backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform group-hover:border-accent/50 group-hover:shadow-card-hover"
     >
       {/* Specular highlight along the top edge — the detail that makes a
           translucent panel read as glass rather than as low opacity. */}

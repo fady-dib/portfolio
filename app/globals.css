@@ -217,22 +217,46 @@
     animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   }
 
+  /* Driven by --stage, which HeroStage writes on scroll: the hero visibly
+     recedes — shrinking, lifting, and rounding into a panel — as the first
+     screen scrolls away. */
+  .hero-stage {
+    --stage: 0;
+    transform: scale(calc(1 - var(--stage) * 0.14)) translateY(calc(var(--stage) * -2.5rem));
+    border-radius: calc(var(--stage) * 2.5rem);
+    border: 1px solid color-mix(in oklab, var(--border) calc(var(--stage) * 100%), transparent);
+    box-shadow: 0 50px 90px -40px
+      color-mix(in oklab, var(--accent) calc(var(--stage) * 30%), transparent);
+    transition: box-shadow 0.4s ease;
+    will-change: transform;
+  }
+
+  /* Parallax: the light field drifts down as the frame lifts, so the two
+     layers separate instead of moving as one block. */
+  .hero-parallax {
+    transform: translateY(calc(var(--stage, 0) * 4rem)) scale(calc(1 + var(--stage, 0) * 0.08));
+    will-change: transform;
+  }
+
+  /* ------------------------------------------------------------------
+     Kept for later: the recede restricted to desktop.
+
+     Scaling .hero-stage re-rasterises every glyph inside it on each scroll
+     frame, which is why it asks to be promoted to its own compositing layer
+     — a layer that also carries two canvases and several large blurs. On a
+     phone that texture is expensive enough that the browser can drop it once
+     enough scrolling has built up memory pressure, and the hero text then
+     stops painting until something forces a repaint. That is the "text
+     disappears after scrolling up and down a lot" report.
+
+     To trade the mobile recede for that, delete the two rules above and
+     uncomment this block, then apply the matching change in
+     components/hero-stage.tsx.
+
   .hero-stage {
     --stage: 0;
   }
 
-  /* Driven by --stage, which HeroStage writes on scroll: the hero visibly
-     recedes — shrinking, lifting, and rounding into a panel — as the first
-     screen scrolls away.
-
-     Desktop only, and deliberately so. Scaling this element re-rasterises
-     every glyph inside it on every scroll frame, which is why it asks to be
-     promoted to its own compositing layer — a layer that also carries two
-     canvases and several large blurs. On a phone that texture is expensive
-     enough that the browser drops it once enough scrolling has built up
-     memory pressure, and the hero text then stops painting until something
-     forces a repaint. At that width the recede is barely perceptible anyway,
-     so it buys nothing to pay for. */
   @media (min-width: 768px) {
     .hero-stage {
       transform: scale(calc(1 - var(--stage) * 0.14)) translateY(calc(var(--stage) * -2.5rem));
@@ -244,13 +268,12 @@
       will-change: transform;
     }
 
-    /* Parallax: the light field drifts down as the frame lifts, so the two
-       layers separate instead of moving as one block. */
     .hero-parallax {
       transform: translateY(calc(var(--stage, 0) * 4rem)) scale(calc(1 + var(--stage, 0) * 0.08));
       will-change: transform;
     }
   }
+     ------------------------------------------------------------------ */
 
   .marquee-mask {
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
