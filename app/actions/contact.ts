@@ -25,7 +25,15 @@ export async function submitContact(
   if (name.length < 2) return fail('Please enter your name.')
   if (!EMAIL_PATTERN.test(email)) return fail('Please enter a valid email address.')
   if (message.length < 10) return fail('Please write a slightly longer message.')
-  if (!token) return fail('Could not verify you are human. Please reload and try again.')
+  if (!token) {
+    console.error('Contact: no reCAPTCHA token reached the server')
+    return fail('Could not verify you are human. Please reload and try again.')
+  }
+
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    console.error('Contact: RECAPTCHA_SECRET_KEY is not set in this environment')
+    return fail('The form is not configured correctly. Please email me directly.')
+  }
 
   try {
     const verifyResponse = await fetch(VERIFY_URL, {
@@ -37,9 +45,17 @@ export async function submitContact(
       }),
     })
 
-    const verdict = (await verifyResponse.json()) as { success: boolean; score?: number }
+    const verdict = (await verifyResponse.json()) as {
+      success: boolean
+      score?: number
+      hostname?: string
+      'error-codes'?: string[]
+    }
 
     if (!verdict.success || (verdict.score ?? 0) < MIN_SCORE) {
+      // Google's error-codes are the only way to tell a bad secret from a bad
+      // token from a low score, and all three surface the same message.
+      console.error('Contact: reCAPTCHA verification rejected', JSON.stringify(verdict))
       return fail('Could not verify you are human. Please reload and try again.')
     }
 

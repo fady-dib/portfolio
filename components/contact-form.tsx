@@ -66,12 +66,33 @@ function SubmitButton() {
   )
 }
 
-/** Resolves a fresh reCAPTCHA token, or '' if the script never loaded. */
-function getToken(): Promise<string> {
+/**
+ * Waits for the reCAPTCHA script to appear, then mints a token.
+ *
+ * The script is loaded lazily, so a visitor who fills the form quickly can
+ * submit before `window.grecaptcha` exists. Returning '' immediately in that
+ * case made the server reject a perfectly legitimate submission with "could
+ * not verify you are human", which blames the visitor for a timing problem.
+ * Poll for it instead, and only give up after the timeout.
+ */
+async function waitForGrecaptcha(timeoutMs = 8000): Promise<boolean> {
+  const started = Date.now()
+  while (Date.now() - started < timeoutMs) {
+    if (window.grecaptcha?.execute) return true
+    await new Promise((resolve) => setTimeout(resolve, 120))
+  }
+  return false
+}
+
+/** Resolves a fresh reCAPTCHA token, or '' if the script never became ready. */
+async function getToken(): Promise<string> {
+  if (!SITE_KEY) return ''
+  if (!(await waitForGrecaptcha())) return ''
+
   return new Promise((resolve) => {
-    if (!window.grecaptcha || !SITE_KEY) return resolve('')
-    window.grecaptcha.ready(() => {
-      window.grecaptcha!.execute(SITE_KEY, { action: 'submit' })
+    window.grecaptcha!.ready(() => {
+      window
+        .grecaptcha!.execute(SITE_KEY, { action: 'submit' })
         .then(resolve)
         .catch(() => resolve(''))
     })
