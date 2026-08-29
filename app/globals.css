@@ -88,9 +88,23 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Background only — the text colour is deliberately left alone. Mobile
+     browsers frequently honour the selection colour while substituting their
+     own highlight, and forcing color here produced near-white glyphs on the
+     OS default highlight, so a long press made the headline vanish. A
+     translucent tint is legible whichever background wins. */
   ::selection {
-    background-color: var(--accent);
-    color: var(--bg);
+    background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+
+  /* The swept headline paints its glyphs through background-clip with a
+     transparent colour, so it needs its fill restored while selected or it
+     would disappear for the opposite reason. */
+  .text-sweep::selection,
+  .text-sweep *::selection {
+    background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+    color: var(--text);
+    -webkit-text-fill-color: var(--text);
   }
 
   /* Tailwind v4's preflight sets buttons to cursor: default. */
