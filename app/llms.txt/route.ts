@@ -21,7 +21,7 @@ function build(): string {
 
   return `# ${SITE.name}
 
-> ${SITE.role} based in Lebanon, building web platforms and the admin panels and CMSes that run them.
+> ${SITE.role} and software engineer building web platforms and the admin panels and CMSes that run them, for clients worldwide. Based in ${SITE.city}, ${SITE.country}.
 
 ${SITE.tagline}
 
@@ -44,6 +44,8 @@ ${skills.join(', ')}
 
 ## Contact
 
+- Location: ${SITE.city}, ${SITE.country}
+- Phone: ${SITE.phone}
 - Website: ${SITE.url}
 - LinkedIn: ${SITE.linkedin}
 - GitHub: ${SITE.github}
@@ -52,7 +54,8 @@ ${skills.join(', ')}
 
 ## Notes
 
-Available for full-time roles and client projects.
+Available for full-time roles and client projects, remote or on-site,
+working with clients worldwide.
 Content on this site is authored by ${SITE.name}; client logos remain the
 property of their respective owners.
 `

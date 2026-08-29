@@ -15,8 +15,10 @@ const inter = Inter({
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
+// Capability first, location last. Leading with a city reads as local-only
+// intent; trailing it keeps the local benefit without capping global reach.
 const DESCRIPTION =
-  'Full Stack Developer specializing in React, Next.js, Laravel, and Angular, building fast and accessible web applications.'
+  'Full Stack Developer and software engineer specializing in React, Next.js, Laravel, and Angular — building web platforms, admin panels, and CMS-driven sites for clients worldwide. Based in Beirut, Lebanon.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -32,6 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE.url,
     siteName: SITE.name,
+    locale: 'en',
     title: `${SITE.name} | ${SITE.role}`,
     description: DESCRIPTION,
   },

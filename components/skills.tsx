@@ -5,6 +5,9 @@ const chip =
 
 // Split rather than duplicated, so the two rows never show the same word
 // alongside itself.
+// Three copies: the track travels one, so two always remain on screen.
+const PASSES = [0, 1, 2]
+
 const half = Math.ceil(skills.length / 2)
 const rows = [skills.slice(0, half), skills.slice(half)]
 
@@ -18,16 +21,19 @@ function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
           reverse ? 'marquee-track-reverse' : 'marquee-track'
         }`}
       >
-        {items.map((skill) => (
-          <li key={skill} className={chip}>
-            {skill}
-          </li>
-        ))}
-        {items.map((skill) => (
-          <li key={`${skill}-repeat`} aria-hidden="true" className={chip}>
-            {skill}
-          </li>
-        ))}
+        {PASSES.map((pass) =>
+          items.map((skill) => (
+            <li
+              key={`${skill}-${pass}`}
+              // Only the first pass is announced; the rest are duplicates
+              // that exist purely so the loop has something to scroll into.
+              aria-hidden={pass > 0 ? 'true' : undefined}
+              className={chip}
+            >
+              {skill}
+            </li>
+          )),
+        )}
       </ul>
     </div>
   )

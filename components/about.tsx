@@ -2,7 +2,7 @@ import { CountUp } from '@/components/count-up'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { Skills } from '@/components/skills'
-import { stats } from '@/lib/content'
+import { SITE, stats } from '@/lib/content'
 
 export function About() {
   return (
@@ -13,9 +13,10 @@ export function About() {
         <div className="max-w-3xl space-y-5 text-lg text-pretty text-muted">
           <Reveal>
             <p>
-              I am a <strong className="font-semibold text-text">Full Stack Developer</strong>{' '}
-              focused on building and managing both the front-end and back-end of websites and web
-              applications, contributing to the overall success of the product.
+              I am a <strong className="font-semibold text-text">software engineer</strong> based in{' '}
+              {SITE.city}, {SITE.country}. I design and build complete platforms, from their
+              architecture to the APIs they run on and the admin systems the teams behind them
+              depend on.
             </p>
           </Reveal>
           <Reveal delay={80}>

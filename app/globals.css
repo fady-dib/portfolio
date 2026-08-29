@@ -140,9 +140,12 @@
   }
 }
 
+/* Three passes, travelling one of them. Two passes therefore always cover
+   the viewport, where the old two-pass/-50% version left a gap whenever a
+   single pass was narrower than its container. */
 @keyframes marquee {
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.3333%);
   }
 }
 

@@ -47,6 +47,12 @@ export const SITE = {
   tagline:
     'Passionate Full Stack Developer dedicated to developing and optimizing websites and web applications for maximum impact',
   url: 'https://www.fadydib.com',
+  city: 'Beirut',
+  country: 'Lebanon',
+  // ISO code for schema.org; the display string is city + country above.
+  countryCode: 'LB',
+  phone: '+961 70 544 067',
+  phoneHref: 'tel:+96170544067',
   whatsapp: 'https://wa.me/96170544067',
   linkedin: 'https://www.linkedin.com/in/fady-dib',
   github: 'https://github.com/fady-dib',

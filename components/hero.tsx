@@ -23,6 +23,26 @@ export function Hero() {
             {SITE.tagline}
           </p>
 
+          {/* Visible location carries more weight than the schema does, and
+              this is the highest-priority place on the page for it. */}
+          <p
+            className="mt-5 flex animate-rise items-center gap-2 text-sm text-muted"
+            style={{ animationDelay: '300ms' }}
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="size-4 text-accent"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+            >
+              <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            Based in {SITE.city}, {SITE.country} &mdash; working with clients worldwide
+          </p>
+
           <div
             className="mt-10 flex animate-rise flex-wrap gap-3"
             style={{ animationDelay: '380ms' }}

@@ -18,6 +18,23 @@ export function buildJsonLd() {
         url: SITE.url,
         jobTitle: SITE.role,
         knowsAbout: skills,
+        telephone: SITE.phone,
+        // Local signals. Without these the page competes globally for
+        // "full stack developer" instead of ranking where the work is.
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: SITE.city,
+          addressCountry: SITE.countryCode,
+        },
+        // Worldwide first: the address below is a fact about where he is,
+        // not a limit on who he works with, and without this the schema
+        // implies the service area is only Lebanon.
+        areaServed: [
+          { '@type': 'Place', name: 'Worldwide' },
+          { '@type': 'Country', name: SITE.country },
+          { '@type': 'City', name: SITE.city },
+        ],
+        availableLanguage: 'en',
         sameAs: [SITE.linkedin, SITE.github],
       },
       {
