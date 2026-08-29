@@ -33,6 +33,12 @@ export type Project = {
    * would turn the opaque logo tiles into negatives.
    */
   invertOn?: 'dark' | 'light'
+  /**
+   * What was built, in the client's language rather than the stack's — the
+   * kind of system and what it manages. Keep it to one line; these sit on a
+   * card and stop being read past about twelve words.
+   */
+  summary?: string
 }
 
 export const SITE = {
@@ -89,27 +95,28 @@ export const skills: string[] = [
 ]
 
 export const projects: Project[] = [
-  { title: 'Homeresa', image: homeresa, url: 'https://www.homeresa.com/' },
-  { title: 'Loto Iraq', image: loto, url: 'https://iraqloto.com/en' },
-  { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/' },
-  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en', invertOn: 'dark' },
-  { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/' },
-  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', invertOn: 'dark' },
-  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', invertOn: 'light' },
-  { title: 'Mabanee', image: mabanee, url: 'https://mabanee.com/en' },
-  { title: 'Africell', image: africell },
-  { title: 'OLM Website & Mobile App', image: olm, url: 'https://olm.org.lb/ar' },
-  { title: 'You Sport', image: youSport, url: 'https://watchyousport.com/en' },
+  { title: 'Homeresa', image: homeresa, url: 'https://www.homeresa.com/', summary: 'Property listing and booking platform' },
+  { title: 'Loto Iraq', image: loto, url: 'https://iraqloto.com/en', summary: 'Charity lottery platform with online ticketing' },
+  { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/', summary: 'Meal-plan platform' },
+  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en', invertOn: 'dark', summary: 'Lending platform with an admin panel' },
+  { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/', summary: 'Digital wallet platform with an admin panel for features and campaigns' },
+  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', invertOn: 'dark', summary: 'Corporate site with an admin panel' },
+  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', invertOn: 'light', summary: 'Podcast platform with an episode CMS for publishing the series' },
+  { title: 'Mabanee', image: mabanee, url: 'https://mabanee.com/en', summary: 'Corporate site for a real-estate developer' },
+  { title: 'Africell', image: africell, summary: 'Corporate site for a telecom operator' },
+  { title: 'OLM Website & Mobile App', image: olm, url: 'https://olm.org.lb/ar', summary: 'Website and mobile app with a member portal' },
+  { title: 'You Sport', image: youSport, url: 'https://watchyousport.com/en', summary: 'Sports streaming platform' },
   {
     title: 'Hibou Mobile App',
     image: hibou,
     url: 'https://play.google.com/store/apps/details?id=com.tedmob.hibou&hl=en',
+    summary: 'Mobile app published on Google Play',
   },
-  { title: 'Yellow Door', image: yellowDoor, url: 'https://www.yellowdoorenergy.com/' },
-  { title: 'Neo', image: neo, url: 'https://neo.iq/en' },
-  { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/' },
-  { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/' },
-  { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/' },
-  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', invertOn: 'dark' },
-  { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/' },
+  { title: 'Yellow Door', image: yellowDoor, url: 'https://www.yellowdoorenergy.com/', summary: 'Corporate site with a CMS' },
+  { title: 'Neo', image: neo, url: 'https://neo.iq/en', summary: 'Customer portal with account management' },
+  { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/', summary: 'Corporate site for an LPG manufacturer' },
+  { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/', summary: 'Corporate site with an admin panel' },
+  { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/', summary: 'Product catalogue site with an admin panel for a 12,000-item range' },
+  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', invertOn: 'dark', summary: 'Chamber portal with member e-services' },
+  { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/', summary: 'Group site with an admin panel' },
 ]

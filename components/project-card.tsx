@@ -75,8 +75,13 @@ export function ProjectCard({ project }: { project: Project }) {
           loading="lazy"
         />
       </div>
-      <div className="mt-5 flex items-center justify-between gap-3">
-        <p className="font-semibold">{project.title}</p>
+      <div className="mt-5 flex items-start justify-between gap-3">
+        <div>
+          <p className="font-semibold">{project.title}</p>
+          {project.summary ? (
+            <p className="mt-1.5 text-sm leading-snug text-pretty text-muted">{project.summary}</p>
+          ) : null}
+        </div>
         {project.url ? (
           <span
             aria-hidden="true"
