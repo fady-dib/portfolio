@@ -1,12 +1,21 @@
 import type { StaticImageData } from 'next/image'
 
 import africell from '@/assets/africell.webp'
+import bidfood from '@/assets/bidfood.png'
+import ccib from '@/assets/ccib.svg'
 import hibou from '@/assets/hibou-logo.webp'
 import homeresa from '@/assets/homeresa.png'
+import maabar from '@/assets/maabar.svg'
+import macrolab from '@/assets/macrolab.png'
 import loto from '@/assets/logo-ball.webp'
 import mabanee from '@/assets/mabanee.png'
+import matter from '@/assets/matter.svg'
+import naturaseal from '@/assets/naturaseal.svg'
 import neo from '@/assets/neo-4496.svg'
+import ofinance from '@/assets/ofinance.svg'
 import olm from '@/assets/olm.png'
+import purpl from '@/assets/purpl.png'
+import quinta from '@/assets/quinta.png'
 import sigma from '@/assets/sigma-logo.jpeg'
 import yellowDoor from '@/assets/yellow_door.png'
 import youSport from '@/assets/yousport-logo.webp'
@@ -82,4 +91,13 @@ export const projects: Project[] = [
   { title: 'Yellow Door', image: yellowDoor, url: 'https://www.yellowdoorenergy.com/' },
   { title: 'Neo', image: neo, url: 'https://neo.iq/en' },
   { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/' },
+  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/' },
+  { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/' },
+  { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/' },
+  { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/' },
+  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en' },
+  { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/' },
+  { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/' },
+  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/' },
+  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en' },
 ]

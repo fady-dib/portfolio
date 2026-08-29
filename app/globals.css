@@ -11,16 +11,22 @@
 }
 
 :root {
-  --bg: #E8ECEE;
+  /* Cleaner and lighter than before. The old #E8ECEE sat close enough to the
+     white cards that nothing had edges, and the aurora muddied it to grey. */
+  --bg: #F4F7F8;
   --surface: #FFFFFF;
-  --border: #CBD4D9;
-  --text: #0D1418;
-  --muted: #4E5C66;
-  --accent: #0E7490;
-  --accent-soft: #D3ECF3;
+  --border: #D5DEE3;
+  --text: #0A1115;
+  --muted: #4B5A64;
+  --accent: #0A6B80;
+  --accent-soft: #DCF0F5;
 
-  --glass: rgb(255 255 255 / 0.32);
-  --glass-edge: rgb(255 255 255 / 0.7);
+  /* Light UIs get their depth from shadow; dark ones from glow. */
+  --shadow-card: 0 1px 2px rgb(10 17 21 / 0.05), 0 10px 30px -12px rgb(10 17 21 / 0.16);
+  --shadow-card-hover: 0 2px 4px rgb(10 17 21 / 0.06), 0 18px 44px -14px rgb(10 55 66 / 0.28);
+
+  --glass: rgb(255 255 255 / 0.72);
+  --glass-edge: rgb(255 255 255 / 0.9);
 }
 
 .dark {
@@ -34,6 +40,9 @@
 
   --glass: rgb(255 255 255 / 0.045);
   --glass-edge: rgb(255 255 255 / 0.1);
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 14px 36px -14px rgb(0 0 0 / 0.55);
+  --shadow-card-hover: 0 2px 6px rgb(0 0 0 / 0.35), 0 22px 52px -16px rgb(0 0 0 / 0.7);
 }
 
 @theme inline {
@@ -46,6 +55,9 @@
   --color-accent-soft: var(--accent-soft);
   --color-glass: var(--glass);
   --color-glass-edge: var(--glass-edge);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
 
   --font-sans: var(--font-inter);
 

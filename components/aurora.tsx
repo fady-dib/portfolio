@@ -104,7 +104,10 @@ export function Aurora() {
       current.y += (target.y - current.y) * 0.045
 
       context!.clearRect(0, 0, width, height)
-      context!.globalCompositeOperation = isDark ? 'lighter' : 'source-over'
+      // Additive on dark so the orbs read as light. Multiply on light: drawn
+      // normally they only dilute the ground toward grey, whereas multiplying
+      // deepens it into an actual tint of the accent.
+      context!.globalCompositeOperation = isDark ? 'lighter' : 'multiply'
 
       const span = Math.max(width, height)
 
@@ -120,7 +123,7 @@ export function Aurora() {
         const r = orb.radius * span
 
         const [cr, cg, cb] = shiftHue(base, orb.hue)
-        const alpha = isDark ? 0.24 : 0.2
+        const alpha = isDark ? 0.24 : 0.16
 
         const gradient = context!.createRadialGradient(cx, cy, 0, cx, cy, r)
         gradient.addColorStop(0, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, ${alpha})`)

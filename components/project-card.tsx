@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const inner = (
     <div
       ref={cardRef}
-      className="ring-spin relative flex h-full flex-col overflow-hidden rounded-card border border-glass-edge bg-glass p-5 shadow-lg shadow-black/5 backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform group-hover:border-accent/50 group-hover:shadow-2xl group-hover:shadow-accent/10"
+      className="ring-spin relative flex h-full flex-col overflow-hidden rounded-card border border-glass-edge bg-glass p-5 shadow-card backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform group-hover:border-accent/50 group-hover:shadow-card-hover"
     >
       {/* Specular highlight along the top edge — the detail that makes a
           translucent panel read as glass rather than as low opacity. */}

@@ -11,7 +11,7 @@ export function Contact() {
         </p>
         {/* Same glass treatment as the cards, so the panels read as one
             material across the page. */}
-        <div className="relative overflow-hidden rounded-card border border-glass-edge bg-glass p-6 shadow-lg shadow-black/5 backdrop-blur-xl md:p-8">
+        <div className="relative overflow-hidden rounded-card border border-glass-edge bg-glass p-6 shadow-card backdrop-blur-xl md:p-8">
           <span
             aria-hidden="true"
             className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
