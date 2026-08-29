@@ -26,12 +26,13 @@ export type Project = {
   image: StaticImageData
   url?: string
   /**
-   * Set on logos that are dark artwork on a transparent background. Those
-   * disappear against a dark card, and there is no plate behind them any
-   * more, so they are lightened in dark mode instead. Opt-in per project:
-   * applying it to everything turns opaque logo tiles into negatives.
+   * Which theme the logo needs flipping in, for artwork built for one
+   * background only. CCIB is near-black and vanishes on a dark card;
+   * Maabar is white and vanishes on a light one — opposite directions, so
+   * the flag carries which. Opt-in per project: applied to everything it
+   * would turn the opaque logo tiles into negatives.
    */
-  onDark?: 'lighten'
+  invertOn?: 'dark' | 'light'
 }
 
 export const SITE = {
@@ -91,10 +92,10 @@ export const projects: Project[] = [
   { title: 'Homeresa', image: homeresa, url: 'https://www.homeresa.com/' },
   { title: 'Loto Iraq', image: loto, url: 'https://iraqloto.com/en' },
   { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/' },
-  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en', onDark: 'lighten' },
+  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en', invertOn: 'dark' },
   { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/' },
-  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', onDark: 'lighten' },
-  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', onDark: 'lighten' },
+  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', invertOn: 'dark' },
+  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', invertOn: 'light' },
   { title: 'Mabanee', image: mabanee, url: 'https://mabanee.com/en' },
   { title: 'Africell', image: africell },
   { title: 'OLM Website & Mobile App', image: olm, url: 'https://olm.org.lb/ar' },
@@ -109,6 +110,6 @@ export const projects: Project[] = [
   { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/' },
   { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/' },
   { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/' },
-  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', onDark: 'lighten' },
+  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', invertOn: 'dark' },
   { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/' },
 ]

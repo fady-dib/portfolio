@@ -66,7 +66,11 @@ export function ProjectCard({ project }: { project: Project }) {
             // invert flips lightness but also the hue; hue-rotate(180) puts
             // the hue back, so a navy wordmark becomes light blue rather than
             // yellow. Plain invert alone would wreck the brand colours.
-            project.onDark === 'lighten' ? 'dark:invert dark:hue-rotate-180' : ''
+            project.invertOn === 'dark'
+              ? 'dark:invert dark:hue-rotate-180'
+              : project.invertOn === 'light'
+                ? 'invert hue-rotate-180 dark:invert-0 dark:hue-rotate-0'
+                : ''
           }`}
           loading="lazy"
         />
