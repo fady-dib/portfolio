@@ -24,10 +24,12 @@ describe('About', () => {
   it('renders every skill exactly once for assistive tech', () => {
     render(<About />)
     for (const skill of skills) {
-      // The marquee renders a second pass so the loop wraps seamlessly; that
-      // copy is aria-hidden, so only one of each should be announced.
+      // The marquee repeats the list so the loop wraps seamlessly. How many
+      // passes it takes is a layout concern that has already changed once, so
+      // assert only that it does repeat — and that every pass past the first
+      // is aria-hidden, leaving exactly one of each announced.
       const matches = screen.getAllByText(skill)
-      expect(matches).toHaveLength(2)
+      expect(matches.length).toBeGreaterThan(1)
 
       const announced = matches.filter(
         (el) => el.closest('[aria-hidden="true"]') === null,

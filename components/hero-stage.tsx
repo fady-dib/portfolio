@@ -19,6 +19,12 @@ export function HeroStage({ children }: { children: React.ReactNode }) {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    // Mirrors the stylesheet, where the recede is md-and-up. Writing the
+    // property below that width would cost a style recalculation on every
+    // scroll frame for a value no rule reads, so bind the listeners to the
+    // same query rather than leaving them running.
+    const desktop = window.matchMedia('(min-width: 768px)')
+
     let frame = 0
 
     const apply = () => {
@@ -34,11 +40,29 @@ export function HeroStage({ children }: { children: React.ReactNode }) {
       if (!frame) frame = requestAnimationFrame(apply)
     }
 
-    schedule()
-    window.addEventListener('scroll', schedule, { passive: true })
-    window.addEventListener('resize', schedule)
+    const bind = () => {
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      cancelAnimationFrame(frame)
+      frame = 0
+
+      if (!desktop.matches) {
+        // Crossing back down leaves whatever the last frame wrote behind, and
+        // the mobile rules do not reset it. Park it at rest.
+        stage.style.setProperty('--stage', '0')
+        return
+      }
+
+      schedule()
+      window.addEventListener('scroll', schedule, { passive: true })
+      window.addEventListener('resize', schedule)
+    }
+
+    bind()
+    desktop.addEventListener('change', bind)
 
     return () => {
+      desktop.removeEventListener('change', bind)
       window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
       cancelAnimationFrame(frame)
