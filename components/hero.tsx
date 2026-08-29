@@ -8,7 +8,7 @@ export function Hero() {
       <HeroStage>
         <HeroAmbient />
 
-        <div className="relative mx-auto max-w-6xl px-5 py-32 md:py-44">
+        <div className="relative mx-auto max-w-7xl px-5 py-32 md:py-44">
           <h1
             className="max-w-4xl animate-rise text-5xl font-black tracking-tight text-balance md:text-display"
             style={{ animationDelay: '80ms' }}

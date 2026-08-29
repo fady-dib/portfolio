@@ -132,6 +132,14 @@
   }
 }
 
+/* A slow rotation reads as continuous motion without anything crossing the
+   copy — the beam sweeps, the text stays put. */
+@keyframes sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-50%);
@@ -167,8 +175,29 @@
     animation: shimmer 4.5s ease-in-out 1.2s 2;
   }
 
+  .sweep-a {
+    animation: sweep 42s linear infinite;
+  }
+
+  /* Opposite direction and a different period, so the two beams cross rather
+     than travelling together. */
+  .sweep-b {
+    animation: sweep 66s linear infinite reverse;
+  }
+
   .marquee-track {
     animation: marquee 38s linear infinite;
+  }
+
+  /* Same keyframes played backwards, so the second row drifts against the
+     first without needing a mirrored set. */
+  .marquee-track-reverse {
+    animation: marquee 44s linear infinite reverse;
+  }
+
+  /* Words rise in sequence on load. Applied per word with an inline delay. */
+  .animate-word {
+    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   }
 
   /* Driven by --stage, which HeroStage writes on scroll: the hero visibly
@@ -253,7 +282,8 @@
   }
 
   /* A marquee with no animation is a truncated list, so let it wrap. */
-  .marquee-track {
+  .marquee-track,
+  .marquee-track-reverse {
     animation: none;
     flex-wrap: wrap;
   }

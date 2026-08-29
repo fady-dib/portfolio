@@ -7,13 +7,13 @@ import { stats } from '@/lib/content'
 export function About() {
   return (
     <section id="about" className="border-t border-border py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-5">
+      <div className="mx-auto max-w-7xl px-5">
         <SectionHeading eyebrow="About" label="Building both sides of the web" />
 
         <div className="max-w-3xl space-y-5 text-lg text-pretty text-muted">
           <Reveal>
             <p>
-              I am a <strong className="font-semibold text-text">Full Stack Web Developer</strong>{' '}
+              I am a <strong className="font-semibold text-text">Full Stack Developer</strong>{' '}
               focused on building and managing both the front-end and back-end of websites and web
               applications, contributing to the overall success of the product.
             </p>

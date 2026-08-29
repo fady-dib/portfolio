@@ -14,7 +14,7 @@ export function SiteHeader() {
           trap the mobile menu overlay inside the header. */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-bg/75 backdrop-blur-xl" />
 
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5">
         <a href="#home" className="group flex items-center gap-3">
           <span className="relative">
             <span

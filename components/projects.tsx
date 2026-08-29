@@ -1,4 +1,5 @@
 import { ProjectCard } from '@/components/project-card'
+import { RevealItem } from '@/components/reveal-item'
 import { SectionHeading } from '@/components/section-heading'
 import { projects } from '@/lib/content'
 
@@ -14,7 +15,7 @@ export function Projects() {
         <div className="absolute inset-x-0 top-1/3 h-64 -skew-y-6 bg-gradient-to-r from-transparent via-text/[0.035] to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-5">
+      <div className="relative mx-auto max-w-7xl px-5">
         <SectionHeading eyebrow="Work" label="Projects I contributed to" />
       </div>
 
@@ -27,11 +28,18 @@ export function Projects() {
           because snap-start aligns a card to the snapport, which defaults to
           the padding box — without it the browser scrolls by exactly
           padding-left and the first card ends up flush against the edge. */}
-      <ul className="relative mx-auto flex max-w-6xl snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 py-6 md:grid md:grid-cols-3 md:overflow-visible">
-        {projects.map((project) => (
-          <li key={project.title} className="flex md:block">
+      <ul className="relative mx-auto flex max-w-7xl snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 py-6 md:grid md:grid-cols-3 md:overflow-visible">
+        {projects.map((project, index) => (
+          <RevealItem
+            key={project.title}
+            className="flex md:block"
+            // Stagger within a row of three rather than across all nineteen —
+            // a linear delay would leave the last card waiting well over a
+            // second after the first.
+            delay={(index % 3) * 90}
+          >
             <ProjectCard project={project} />
-          </li>
+          </RevealItem>
         ))}
       </ul>
     </section>

@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border py-16">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-5 md:flex-row md:items-start md:justify-between">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
           <p className="text-sm font-bold tracking-[0.18em] uppercase">{SITE.name}</p>
           <p className="mt-4 text-sm leading-relaxed text-muted">
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
       </div>
 
-      <p className="mx-auto mt-14 max-w-6xl border-t border-border px-5 pt-8 text-center text-xs text-muted">
+      <p className="mx-auto mt-14 max-w-7xl border-t border-border px-5 pt-8 text-center text-xs text-muted">
         &copy; {year} {SITE.name}
       </p>
     </footer>

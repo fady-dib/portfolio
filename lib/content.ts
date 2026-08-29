@@ -64,9 +64,9 @@ export const stats: Stat[] = [
     text: 'With 5+ years of professional experience in web development, I have honed my skills in front-end and back-end technologies.',
   },
   {
-    number: 15,
+    number: 20,
     title: 'Technologies Mastered',
-    text: 'Proficient in 15+ key technologies including React, Angular, Node.js, and Tailwind CSS, ensuring flexibility and adaptability in any project.',
+    text: 'Proficient in 20+ key technologies including React, Angular, Node.js, and Tailwind CSS, ensuring flexibility and adaptability in any project.',
   },
 ]
 
@@ -102,6 +102,7 @@ export const projects: Project[] = [
   { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/', summary: 'Digital wallet platform with an admin panel for features and campaigns' },
   { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', invertOn: 'dark', summary: 'Corporate site with an admin panel' },
   { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', invertOn: 'light', summary: 'Podcast platform with an episode CMS for publishing the series' },
+  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', invertOn: 'dark', summary: 'Chamber portal with member e-services' },
   { title: 'Mabanee', image: mabanee, url: 'https://mabanee.com/en', summary: 'Corporate site for a real-estate developer' },
   { title: 'Africell', image: africell, summary: 'Corporate site for a telecom operator' },
   { title: 'OLM Website & Mobile App', image: olm, url: 'https://olm.org.lb/ar', summary: 'Website and mobile app with a member portal' },
@@ -117,6 +118,5 @@ export const projects: Project[] = [
   { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/', summary: 'Corporate site for an LPG manufacturer' },
   { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/', summary: 'Corporate site with an admin panel' },
   { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/', summary: 'Product catalogue site with an admin panel for a 12,000-item range' },
-  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', invertOn: 'dark', summary: 'Chamber portal with member e-services' },
   { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/', summary: 'Group site with an admin panel' },
 ]

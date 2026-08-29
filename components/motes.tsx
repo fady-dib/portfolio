@@ -45,6 +45,7 @@ export function Motes() {
     let start = 0
     let motes: Mote[] = []
     let rgb: [number, number, number] = [79, 187, 211]
+    let isDark = true
 
     const pointer = { x: -9999, y: -9999 }
 
@@ -53,6 +54,7 @@ export function Motes() {
         .getPropertyValue('--accent')
         .trim()
         .replace('#', '')
+      isDark = document.documentElement.classList.contains('dark')
       if (hex.length === 6) {
         rgb = [
           parseInt(hex.slice(0, 2), 16),
@@ -133,7 +135,10 @@ export function Motes() {
 
         context!.beginPath()
         context!.arc(x + mote.ox, y + mote.oy, mote.r, 0, Math.PI * 2)
-        context!.fillStyle = `rgba(${r}, ${g}, ${b}, ${mote.alpha * twinkle * depth})`
+        // The accent is a dark teal in light mode, so the same alpha carries
+        // less against a pale ground than it does on near-black.
+        const weight = isDark ? 1 : 1.5
+        context!.fillStyle = `rgba(${r}, ${g}, ${b}, ${mote.alpha * twinkle * depth * weight})`
         context!.fill()
       }
 

@@ -1,9 +1,37 @@
 import { skills } from '@/lib/content'
 
-// Two identical passes: the track scrolls exactly one pass width, so the
-// wrap-around is invisible.
 const chip =
   'shrink-0 rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted transition-colors duration-300 hover:border-accent hover:text-accent'
+
+// Split rather than duplicated, so the two rows never show the same word
+// alongside itself.
+const half = Math.ceil(skills.length / 2)
+const rows = [skills.slice(0, half), skills.slice(half)]
+
+function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
+  return (
+    <div className="marquee-mask -mx-5 overflow-hidden px-5">
+      {/* Two identical passes: the track travels exactly one pass width, so
+          the wrap-around is invisible. */}
+      <ul
+        className={`flex w-max gap-2.5 hover:[animation-play-state:paused] ${
+          reverse ? 'marquee-track-reverse' : 'marquee-track'
+        }`}
+      >
+        {items.map((skill) => (
+          <li key={skill} className={chip}>
+            {skill}
+          </li>
+        ))}
+        {items.map((skill) => (
+          <li key={`${skill}-repeat`} aria-hidden="true" className={chip}>
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export function Skills() {
   return (
@@ -12,19 +40,11 @@ export function Skills() {
         Tools I work with
       </h3>
 
-      <div className="marquee-mask -mx-5 overflow-hidden px-5">
-        <ul className="marquee-track flex w-max gap-2.5 hover:[animation-play-state:paused]">
-          {skills.map((skill) => (
-            <li key={skill} className={chip}>
-              {skill}
-            </li>
-          ))}
-          {skills.map((skill) => (
-            <li key={`${skill}-repeat`} aria-hidden="true" className={chip}>
-              {skill}
-            </li>
-          ))}
-        </ul>
+      {/* Opposite directions: two rows drifting against each other read as
+          considerably more alive than one, at no extra cost. */}
+      <div className="flex flex-col gap-2.5">
+        <Row items={rows[0]} />
+        <Row items={rows[1]} reverse />
       </div>
     </div>
   )

@@ -3,11 +3,18 @@
 import { useEffect, useRef } from 'react'
 
 /** Each orb drifts on its own two sine paths, so the field never visibly loops. */
+/**
+ * Five orbs across a wider hue spread. A single hue reads as one flat wash;
+ * spreading toward blue and violet gives the field depth, and the small
+ * bright core on each is what makes it look like light rather than a
+ * blurred circle. `core` scales the centre stop only.
+ */
 const ORBS = [
-  { hue: 0, radius: 0.58, x: 0.34, y: 0.2, ax: 0.1, ay: 0.08, sx: 0.00007, sy: 0.00011, pull: 0.55 },
-  { hue: 16, radius: 0.48, x: 0.72, y: 0.32, ax: 0.13, ay: 0.07, sx: 0.00009, sy: 0.00006, pull: 0.35 },
-  { hue: 30, radius: 0.42, x: 0.56, y: 0.6, ax: 0.09, ay: 0.11, sx: 0.00005, sy: 0.00013, pull: 0.7 },
-  { hue: 46, radius: 0.34, x: 0.86, y: 0.66, ax: 0.11, ay: 0.09, sx: 0.00012, sy: 0.00008, pull: 0.25 },
+  { hue: 0, radius: 0.58, x: 0.30, y: 0.18, ax: 0.10, ay: 0.08, sx: 0.00007, sy: 0.00011, pull: 0.55, core: 1.35 },
+  { hue: 22, radius: 0.46, x: 0.70, y: 0.30, ax: 0.13, ay: 0.07, sx: 0.00009, sy: 0.00006, pull: 0.35, core: 1.0 },
+  { hue: 44, radius: 0.40, x: 0.54, y: 0.58, ax: 0.09, ay: 0.11, sx: 0.00005, sy: 0.00013, pull: 0.70, core: 1.15 },
+  { hue: 68, radius: 0.32, x: 0.86, y: 0.62, ax: 0.11, ay: 0.09, sx: 0.00012, sy: 0.00008, pull: 0.25, core: 0.9 },
+  { hue: -18, radius: 0.26, x: 0.16, y: 0.62, ax: 0.08, ay: 0.10, sx: 0.00014, sy: 0.00009, pull: 0.45, core: 1.5 },
 ]
 
 // Rendered small and stretched back up. The field is pure soft gradient, so
@@ -123,11 +130,15 @@ export function Aurora() {
         const r = orb.radius * span
 
         const [cr, cg, cb] = shiftHue(base, orb.hue)
-        const alpha = isDark ? 0.24 : 0.16
+        const alpha = (isDark ? 0.2 : 0.34) * orb.core
 
+        // Four stops rather than three: the tight inner one gives each orb a
+        // hot centre that falls away fast, which is what separates light from
+        // a flat disc of colour.
         const gradient = context!.createRadialGradient(cx, cy, 0, cx, cy, r)
         gradient.addColorStop(0, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, ${alpha})`)
-        gradient.addColorStop(0.55, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, ${alpha * 0.35})`)
+        gradient.addColorStop(0.18, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, ${alpha * 0.72})`)
+        gradient.addColorStop(0.55, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, ${alpha * 0.26})`)
         gradient.addColorStop(1, `rgba(${cr | 0}, ${cg | 0}, ${cb | 0}, 0)`)
 
         context!.fillStyle = gradient
