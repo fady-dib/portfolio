@@ -21,11 +21,13 @@ export function Projects() {
       {/* Horizontal scroll-snap below md, a plain grid above. No resize
           listener, no manual slide chunking.
 
-          The vertical padding is load-bearing: setting overflow-x to auto
-          forces overflow-y to auto as well, so the card's hover lift and its
-          shadow were being clipped top and bottom. The padding gives them
-          room inside the scroll box. */}
-      <ul className="relative mx-auto flex max-w-6xl snap-x snap-mandatory gap-5 overflow-x-auto px-5 py-6 md:grid md:grid-cols-3 md:overflow-visible">
+          Two paddings are load-bearing here. The vertical one: setting
+          overflow-x to auto forces overflow-y to auto as well, so the card's
+          hover lift and shadow were clipped top and bottom. And scroll-px,
+          because snap-start aligns a card to the snapport, which defaults to
+          the padding box — without it the browser scrolls by exactly
+          padding-left and the first card ends up flush against the edge. */}
+      <ul className="relative mx-auto flex max-w-6xl snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 py-6 md:grid md:grid-cols-3 md:overflow-visible">
         {projects.map((project) => (
           <li key={project.title} className="flex md:block">
             <ProjectCard project={project} />
