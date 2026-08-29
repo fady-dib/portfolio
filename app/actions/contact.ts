@@ -55,7 +55,19 @@ export async function submitContact(
     if (!verdict.success || (verdict.score ?? 0) < MIN_SCORE) {
       // Google's error-codes are the only way to tell a bad secret from a bad
       // token from a low score, and all three surface the same message.
-      console.error('Contact: reCAPTCHA verification rejected', JSON.stringify(verdict))
+      // The token shape is logged alongside: a live v3 token is ~2500 chars
+      // starting "0cAFcWeA", so a short or differently-prefixed value here
+      // means it was mangled in transit rather than rejected on merit.
+      console.error(
+        'Contact: reCAPTCHA verification rejected',
+        JSON.stringify({
+          verdict,
+          tokenLength: token.length,
+          tokenHead: token.slice(0, 12),
+          tokenTail: token.slice(-8),
+          secretLength: (process.env.RECAPTCHA_SECRET_KEY ?? '').length,
+        }),
+      )
       return fail('Could not verify you are human. Please reload and try again.')
     }
 
