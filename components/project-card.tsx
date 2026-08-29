@@ -94,7 +94,7 @@ export function ProjectCard({ project }: { project: Project }) {
     </div>
   )
 
-  const shared = 'group block h-full w-[17rem] shrink-0 snap-start md:w-auto md:shrink'
+  const shared = 'group block h-full w-full'
 
   return project.url ? (
     <a

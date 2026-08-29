@@ -3,11 +3,16 @@
 import { useInView } from '@/lib/use-in-view'
 
 /**
- * A list item that rises into view.
+ * Wrapper that rises into view, for cards inside the projects carousel.
  *
- * Renders the <li> itself rather than wrapping one, so it stays the direct
- * child of the scroll container — scroll-snap alignment and the grid both
- * depend on that relationship.
+ * Renders a div rather than an li now that the slides live inside Swiper,
+ * which owns the list structure itself.
+ *
+ * The hidden state is deliberately md-only. Below that the cards sit in a
+ * horizontal carousel, so anything past the first slide never intersects the
+ * viewport, IntersectionObserver never fires for it, and it would stay
+ * invisible until swiped to. From md the wrapper is laid out as a grid in
+ * normal vertical flow, which is where a scroll reveal actually makes sense.
  */
 export function RevealItem({
   children,
@@ -18,21 +23,17 @@ export function RevealItem({
   delay?: number
   className?: string
 }) {
-  const { ref, inView } = useInView<HTMLLIElement>()
+  const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <li
+    <div
       ref={ref}
       style={{ transitionDelay: inView ? `${delay}ms` : '0ms' }}
-      // The hidden state is desktop-only. On mobile these sit in a
-      // horizontal scroller, so cards further along never intersect the
-      // viewport and would stay invisible until scrolled to — and the
-      // translate added vertical overflow to a box that must not have any.
-      className={`${className} transition-all duration-700 ease-out ${
+      className={`${className} h-full transition-all duration-700 ease-out ${
         inView ? 'md:translate-y-0 md:opacity-100' : 'md:translate-y-8 md:opacity-0'
       }`}
     >
       {children}
-    </li>
+    </div>
   )
 }

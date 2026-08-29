@@ -263,6 +263,38 @@
   }
 }
 
+/* The active bullet is a widened pill rather than a larger dot, so it reads
+   as position along a track. Colours come from Swiper's own variables, set on
+   the component. */
+.projects-swiper .swiper-pagination-bullet-active {
+  width: 20px;
+  border-radius: 999px;
+}
+
+.projects-swiper .swiper-slide {
+  height: auto;
+}
+
+/* From md the carousel is switched off in JS, so the wrapper is laid out as
+   a grid instead. Same slides, no second copy of the markup. */
+@media (min-width: 768px) {
+  .projects-swiper .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    transform: none !important;
+  }
+
+  .projects-swiper .swiper-slide {
+    width: auto !important;
+    margin-right: 0 !important;
+  }
+
+  .projects-swiper .swiper-pagination {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
