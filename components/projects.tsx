@@ -27,8 +27,14 @@ export function Projects() {
           hover lift and shadow were clipped top and bottom. And scroll-px,
           because snap-start aligns a card to the snapport, which defaults to
           the padding box — without it the browser scrolls by exactly
-          padding-left and the first card ends up flush against the edge. */}
-      <ul className="relative mx-auto flex max-w-7xl snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 py-6 md:grid md:grid-cols-3 md:overflow-visible">
+          padding-left and the first card ends up flush against the edge.
+
+          touch-pan-x is what keeps the page scrollable on a phone. Since
+          overflow-x forces overflow-y to auto, this box was vertically
+          scrollable by a few pixels, so a downward swipe over it was captured
+          here, consumed, and never reached the page. Restricting it to
+          horizontal panning hands vertical gestures back. */}
+      <ul className="relative mx-auto flex max-w-7xl touch-pan-x snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto overscroll-x-contain px-5 py-6 md:grid md:grid-cols-3 md:touch-auto md:overflow-visible">
         {projects.map((project, index) => (
           <RevealItem
             key={project.title}
