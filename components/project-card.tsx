@@ -62,7 +62,12 @@ export function ProjectCard({ project }: { project: Project }) {
         <Image
           src={project.image}
           alt={`${project.title} logo`}
-          className="max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+          className={`max-h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105 ${
+            // invert flips lightness but also the hue; hue-rotate(180) puts
+            // the hue back, so a navy wordmark becomes light blue rather than
+            // yellow. Plain invert alone would wreck the brand colours.
+            project.onDark === 'lighten' ? 'dark:invert dark:hue-rotate-180' : ''
+          }`}
           loading="lazy"
         />
       </div>

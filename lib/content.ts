@@ -21,7 +21,18 @@ import yellowDoor from '@/assets/yellow_door.png'
 import youSport from '@/assets/yousport-logo.webp'
 
 export type Stat = { number: number; title: string; text: string }
-export type Project = { title: string; image: StaticImageData; url?: string }
+export type Project = {
+  title: string
+  image: StaticImageData
+  url?: string
+  /**
+   * Set on logos that are dark artwork on a transparent background. Those
+   * disappear against a dark card, and there is no plate behind them any
+   * more, so they are lightened in dark mode instead. Opt-in per project:
+   * applying it to everything turns opaque logo tiles into negatives.
+   */
+  onDark?: 'lighten'
+}
 
 export const SITE = {
   name: 'Fady Dib',
@@ -36,14 +47,14 @@ export const SITE = {
 
 export const stats: Stat[] = [
   {
-    number: 20,
+    number: 30,
     title: 'Projects Completed',
-    text: 'Successfully delivered 20+ diverse projects across web development, showcasing my expertise in building scalable and efficient web applications.',
+    text: 'Successfully delivered 30+ diverse projects across web development, showcasing my expertise in building scalable and efficient web applications.',
   },
   {
-    number: 3,
+    number: 5,
     title: 'Years of Experience',
-    text: 'With 3+ years of professional experience in web development, I have honed my skills in front-end and back-end technologies.',
+    text: 'With 5+ years of professional experience in web development, I have honed my skills in front-end and back-end technologies.',
   },
   {
     number: 15,
@@ -79,6 +90,11 @@ export const skills: string[] = [
 export const projects: Project[] = [
   { title: 'Homeresa', image: homeresa, url: 'https://www.homeresa.com/' },
   { title: 'Loto Iraq', image: loto, url: 'https://iraqloto.com/en' },
+  { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/' },
+  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en', onDark: 'lighten' },
+  { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/' },
+  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/', onDark: 'lighten' },
+  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/', onDark: 'lighten' },
   { title: 'Mabanee', image: mabanee, url: 'https://mabanee.com/en' },
   { title: 'Africell', image: africell },
   { title: 'OLM Website & Mobile App', image: olm, url: 'https://olm.org.lb/ar' },
@@ -91,13 +107,8 @@ export const projects: Project[] = [
   { title: 'Yellow Door', image: yellowDoor, url: 'https://www.yellowdoorenergy.com/' },
   { title: 'Neo', image: neo, url: 'https://neo.iq/en' },
   { title: 'Sigma Cylinders', image: sigma, url: 'https://www.sigmacylinders.com/' },
-  { title: 'Maabar Podcast', image: maabar, url: 'https://www.maabarpodcast.com/' },
   { title: 'MacroLab', image: macrolab, url: 'https://www.macrolablb.com/' },
-  { title: 'Matter Nutrition', image: matter, url: 'https://www.matternutrition.xyz/' },
   { title: 'Bidfood', image: bidfood, url: 'https://www.bidfoodme.com/' },
-  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en' },
-  { title: 'Purpl Wallet', image: purpl, url: 'https://www.purplwallet.com/' },
+  { title: 'CCIB', image: ccib, url: 'https://www.ccib.org.lb/en', onDark: 'lighten' },
   { title: 'The Quinta Group', image: quinta, url: 'https://www.thequintagroup.com/' },
-  { title: 'Naturaseal', image: naturaseal, url: 'https://naturaseal.com/' },
-  { title: 'O Finance', image: ofinance, url: 'https://www.ofinance.com.lb/en' },
 ]
